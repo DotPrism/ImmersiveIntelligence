@@ -37,7 +37,8 @@ public class IIManualCategoryData extends IIManualCategory
 				.addSource("circuit_blueprints", getSourceForItems(
 						BlueprintCraftingRecipe.getTypedBlueprint("basic_circuits"),
 						BlueprintCraftingRecipe.getTypedBlueprint("advanced_circuits"),
-						BlueprintCraftingRecipe.getTypedBlueprint("processors")
+						BlueprintCraftingRecipe.getTypedBlueprint("processors"),
+						BlueprintCraftingRecipe.getTypedBlueprint("cryptography_circuits")
 				))
 				.addSource("basic_general", getSourceForItems(
 						IIContent.itemMaterial.getStack(Materials.BASIC_CIRCUIT_BOARD_RAW),

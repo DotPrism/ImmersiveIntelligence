@@ -20,35 +20,40 @@ tasks.register('coreJar', Jar) {
     group = 'build'
 }
 
-tasks.register('signCoreJar', SignJar) {
-    onlyIf { // Skip the task if our secret data isn't available
-        hasKeyStore()
-    }
-    dependsOn reobfCoreJar
+if (hasKeyStore())
+{
+    tasks.register('signCoreJar', SignJar) {
+        onlyIf { // Skip the task if our secret data isn't available
+            hasKeyStore()
+        }
+        dependsOn reobfCoreJar
 
-    keyStore = getOr("SIGNING_KEY_STORE_PATH", project.keyStore)
-    alias = getOr("SIGNING_KEY_ALIAS", project.keyStoreAlias)
-    storePass = getOr("SIGNING_KEY_PASSWORD", project.keyStoreKeyPass)
-    keyPass = getOr("SIGNING_STORE_PASSWORD", project.keyStorePass)
-    inputFile = coreJar.archivePath
-    outputFile = coreJar.archivePath
+        keyStore = getOr("SIGNING_KEY_STORE_PATH", project.keyStore)
+        alias = getOr("SIGNING_KEY_ALIAS", project.keyStoreAlias)
+        storePass = getOr("SIGNING_KEY_PASSWORD", project.keyStoreKeyPass)
+        keyPass = getOr("SIGNING_STORE_PASSWORD", project.keyStorePass)
+        inputFile = coreJar.archivePath
+        outputFile = coreJar.archivePath
+    }
+
+    tasks.register('signMainJar', SignJar) {
+        onlyIf { // Skip the task if our secret data isn't available
+            hasKeyStore()
+        }
+        dependsOn reobfJar
+
+        keyStore = getOr("SIGNING_KEY_STORE_PATH",project.keyStore)
+        alias = getOr("SIGNING_KEY_ALIAS",project.keyStoreAlias)
+        storePass = getOr("SIGNING_KEY_PASSWORD",project.keyStoreKeyPass)
+        keyPass = getOr("SIGNING_STORE_PASSWORD",project.keyStorePass)
+        inputFile = jar.archivePath
+        outputFile = jar.archivePath
+    }
+
+    build.dependsOn signMainJar
+    jar.dependsOn signCoreJar
 }
 
-tasks.register('signMainJar', SignJar) {
-    onlyIf { // Skip the task if our secret data isn't available
-        hasKeyStore()
-    }
-    dependsOn reobfJar
-
-    keyStore = getOr("SIGNING_KEY_STORE_PATH",project.keyStore)
-    alias = getOr("SIGNING_KEY_ALIAS",project.keyStoreAlias)
-    storePass = getOr("SIGNING_KEY_PASSWORD",project.keyStoreKeyPass)
-    keyPass = getOr("SIGNING_STORE_PASSWORD",project.keyStorePass)
-    inputFile = jar.archivePath
-    outputFile = jar.archivePath
-}
-build.dependsOn signMainJar
-jar.dependsOn signCoreJar
 def libPrefix = 'META-INF/libraries'
 
 jar {
@@ -73,5 +78,6 @@ static String getOr(String envProp, projectProp)
 
 boolean hasKeyStore()
 {
+    if (System.getenv("SIGNING_KEY_STORE_PATH")==null) return false;
     return project.hasProperty('keyStore')||!System.getenv("SIGNING_KEY_STORE_PATH").isEmpty()
 }
