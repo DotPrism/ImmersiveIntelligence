@@ -106,7 +106,7 @@ public class TileEntityCoagulator extends TileEntityMultiblockMetal<TileEntityCo
 
 						this.craneBucket = -1;
 						this.craneProgress = 0;
-						this.craneAnimation=CraneAnimation.NONE;
+						this.craneAnimation = CraneAnimation.NONE;
 					}
 					break;
 				}
@@ -196,8 +196,7 @@ public class TileEntityCoagulator extends TileEntityMultiblockMetal<TileEntityCo
 	{
 		super.readCustomNBT(nbt, descPacket);
 
-		if(isDummy())
-			return;
+		if(isDummy()) return;
 
 		tanks[0] = tanks[0].readFromNBT(nbt.getCompoundTag("tank0"));
 		tanks[1] = tanks[1].readFromNBT(nbt.getCompoundTag("tank1"));
@@ -222,8 +221,7 @@ public class TileEntityCoagulator extends TileEntityMultiblockMetal<TileEntityCo
 	{
 		super.writeCustomNBT(nbt, descPacket);
 
-		if(isDummy())
-			return;
+		if(isDummy()) return;
 
 		nbt.setTag("tank0", tanks[0].writeToNBT(new NBTTagCompound()));
 		nbt.setTag("tank1", tanks[1].writeToNBT(new NBTTagCompound()));

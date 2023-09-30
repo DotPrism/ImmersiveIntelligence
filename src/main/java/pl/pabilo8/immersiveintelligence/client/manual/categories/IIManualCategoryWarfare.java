@@ -26,7 +26,7 @@ import pl.pabilo8.immersiveintelligence.common.block.multiblock.metal_multiblock
 import pl.pabilo8.immersiveintelligence.common.block.multiblock.metal_multiblock1.multiblock.MultiblockAmmunitionWorkshop;
 import pl.pabilo8.immersiveintelligence.common.block.multiblock.metal_multiblock1.multiblock.MultiblockEmplacement;
 import pl.pabilo8.immersiveintelligence.common.block.multiblock.metal_multiblock1.multiblock.MultiblockFlagpole;
-import pl.pabilo8.immersiveintelligence.common.block.multiblock.metal_multiblock1.multiblock.MultiblockProjectileWorkshop;
+import pl.pabilo8.immersiveintelligence.common.block.multiblock.metal_multiblock1.multiblock.MultiblockProjectileForge;
 import pl.pabilo8.immersiveintelligence.common.item.ammo.ItemIIAmmoCasing.Casings;
 import pl.pabilo8.immersiveintelligence.common.item.armor.ItemIIArmorUpgrade.ArmorUpgrades;
 import pl.pabilo8.immersiveintelligence.common.item.weapons.ItemIIWeaponUpgrade.WeaponTypes;
@@ -91,7 +91,7 @@ public class IIManualCategoryWarfare extends IIManualCategory
 				new ManualPages.Text(ManualHelper.getManual(), "ammunition_workshop1")
 		);
 		ManualHelper.addEntry("projectile_workshop", getCategory(),
-				new ManualPageMultiblock(ManualHelper.getManual(), "projectile_workshop0", MultiblockProjectileWorkshop.INSTANCE),
+				new ManualPageMultiblock(ManualHelper.getManual(), "projectile_workshop0", MultiblockProjectileForge.INSTANCE),
 				new ManualPages.Text(ManualHelper.getManual(), "projectile_workshop1"),
 				new ManualPages.Text(ManualHelper.getManual(), "projectile_workshop2")
 		);

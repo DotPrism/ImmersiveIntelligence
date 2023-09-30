@@ -124,8 +124,11 @@ public class ItemIISawBlade extends ItemIISubItemsBase<SawBlades> implements ISa
 
 	public enum SawBlades implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.RESOURCE)
 		IRON(2, Tools.sawbladeIronDurability),
+		@IIItemProperties(category = IICategory.RESOURCE)
 		STEEL(3, Tools.sawbladeSteelDurability),
+		@IIItemProperties(category = IICategory.RESOURCE)
 		TUNGSTEN(4, Tools.sawbladeTungstenDurability);
 
 		final int hardness, durability;

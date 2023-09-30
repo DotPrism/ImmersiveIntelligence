@@ -36,7 +36,6 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import pl.pabilo8.immersiveintelligence.Config.IIConfig.Tools;
 import pl.pabilo8.immersiveintelligence.ImmersiveIntelligence;
 import pl.pabilo8.immersiveintelligence.api.utils.IAdvancedZoomTool;
-import pl.pabilo8.immersiveintelligence.common.IIPotions;
 import pl.pabilo8.immersiveintelligence.common.IIUtils;
 import pl.pabilo8.immersiveintelligence.common.entity.vehicle.EntityFieldHowitzer;
 import pl.pabilo8.immersiveintelligence.common.item.tools.ItemIIBinoculars.Binoculars;
@@ -67,7 +66,9 @@ public class ItemIIBinoculars extends ItemIISubItemsBase<Binoculars> implements 
 
 	public enum Binoculars implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.INTELLIGENCE)
 		BINOCULARS,
+		@IIItemProperties(category = IICategory.INTELLIGENCE)
 		INFRARED_BINOCULARS
 	}
 

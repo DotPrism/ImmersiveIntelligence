@@ -10,23 +10,16 @@ import blusunrize.immersiveengineering.client.models.IOBJModelCallback;
 import blusunrize.immersiveengineering.common.blocks.IEBlockInterfaces.IDirectionalTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.property.ExtendedBlockState;
-import net.minecraftforge.common.property.IExtendedBlockState;
-import net.minecraftforge.common.property.IUnlistedProperty;
 import net.minecraftforge.common.property.Properties;
 import pl.pabilo8.immersiveintelligence.common.block.data_device.BlockIIDataDevice.IIBlockTypes_Connector;
 import pl.pabilo8.immersiveintelligence.common.block.data_device.tileentity.*;
@@ -41,9 +34,9 @@ import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBl
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IITileProviderEnum;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.TernaryValue;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * @author Pabilo8
@@ -66,26 +59,36 @@ public class BlockIIDataDevice extends BlockIITileProvider<IIBlockTypes_Connecto
 	public enum IIBlockTypes_Connector implements IITileProviderEnum
 	{
 		@EnumTileProvider(tile = TileEntityDataConnector.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		DATA_CONNECTOR,
 		@EnumTileProvider(tile = TileEntityDataRelay.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		DATA_RELAY,
 		@EnumTileProvider(tile = TileEntityAlarmSiren.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		ALARM_SIREN,
 		@EnumTileProvider(tile = TileEntityInserter.class)
+		@IIBlockProperties(category = IICategory.LOGISTICS)
 		INSERTER,
 		@EnumTileProvider(tile = TileEntityFluidInserter.class)
+		@IIBlockProperties(category = IICategory.LOGISTICS)
 		FLUID_INSERTER,
 		@EnumTileProvider(tile = TileEntityAdvancedInserter.class)
+		@IIBlockProperties(category = IICategory.LOGISTICS)
 		ADVANCED_INSERTER,
-		@IIBlockProperties(hidden = TernaryValue.TRUE)
+		@IIBlockProperties(hidden = TernaryValue.TRUE, category = IICategory.ELECTRONICS)
 		ADVANCED_FLUID_INSERTER,
 		@EnumTileProvider(tile = TileEntityChemicalDispenser.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		CHEMICAL_DISPENSER,
 		@EnumTileProvider(tile = TileEntityProgrammableSpeaker.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		PROGRAMMABLE_SPEAKER,
 		@EnumTileProvider(tile = TileEntityDataDebugger.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		DATA_DEBUGGER,
 		@EnumTileProvider(tile = TileEntityDataCallbackConnector.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		DATA_DUPLEX_CONNECTOR
 	}
 

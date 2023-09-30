@@ -8,12 +8,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import pl.pabilo8.immersiveintelligence.Config.IIConfig.Weapons.Submachinegun;
 import pl.pabilo8.immersiveintelligence.common.IIContent;
 import pl.pabilo8.immersiveintelligence.common.IISounds;
+import pl.pabilo8.immersiveintelligence.common.IIUtils;
 import pl.pabilo8.immersiveintelligence.common.item.ammo.ItemIIBulletMagazine.Magazines;
 import pl.pabilo8.immersiveintelligence.common.item.weapons.ItemIIWeaponUpgrade.WeaponUpgrades;
 import pl.pabilo8.immersiveintelligence.common.item.weapons.ammohandler.AmmoHandler;
 import pl.pabilo8.immersiveintelligence.common.item.weapons.ammohandler.AmmoHandlerMagazine;
 import pl.pabilo8.immersiveintelligence.common.util.AdvancedSounds.RangedSound;
 import pl.pabilo8.immersiveintelligence.common.util.easynbt.EasyNBT;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
 
 import javax.annotation.Nullable;
 
@@ -21,6 +24,7 @@ import javax.annotation.Nullable;
  * @author Pabilo8
  * @since 01-11-2019
  */
+@IIItemProperties(category = IICategory.WARFARE)
 public class ItemIISubmachinegun extends ItemIIGunBase
 {
 	//--- Ammunition Handler ---//
@@ -64,8 +68,10 @@ public class ItemIISubmachinegun extends ItemIIGunBase
 	@Override
 	public void removeFromWorkbench(EntityPlayer player, ItemStack stack)
 	{
-		//NBTTagCompound upgrades = getUpgrades(stack);
-		// TODO: 09.08.2020 advancements
+		if (hasIIUpgrade(stack, WeaponUpgrades.STURDY_BARREL)&&hasIIUpgrade(stack, WeaponUpgrades.BOTTOM_LOADING))
+			IIUtils.unlockIIAdvancement(player, "main/infinite_power");
+		if (hasIIUpgrade(stack, WeaponUpgrades.SUPPRESSOR)&&hasIIUpgrade(stack, WeaponUpgrades.FOLDING_STOCK))
+			IIUtils.unlockIIAdvancement(player, "main/the_silent_unseen");
 	}
 
 	@Override

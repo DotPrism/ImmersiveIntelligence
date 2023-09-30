@@ -10,8 +10,10 @@ import pl.pabilo8.immersiveintelligence.common.block.rotary_device.tileentity.Ti
 import pl.pabilo8.immersiveintelligence.common.util.IILib;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIITileProvider;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.EnumTileProvider;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IITileProviderEnum;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 /**
  * @author Pabilo8
@@ -22,8 +24,10 @@ public class BlockIIMechanicalDevice extends BlockIITileProvider<IIBlockTypes_Me
 	public enum IIBlockTypes_MechanicalDevice implements IITileProviderEnum
 	{
 		@EnumTileProvider(tile = TileEntityTransmissionBox.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		WOODEN_TRANSMISSION_BOX,
 		@EnumTileProvider(tile = TileEntityTransmissionBoxCreative.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		CREATIVE_TRANSMISSION_BOX
 	}
 

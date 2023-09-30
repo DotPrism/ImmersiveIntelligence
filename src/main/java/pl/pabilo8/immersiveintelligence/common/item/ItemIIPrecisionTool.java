@@ -40,11 +40,17 @@ public class ItemIIPrecisionTool extends ItemIISubItemsBase<PrecisionTools> impl
 
 	public enum PrecisionTools implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		BUZZSAW(Tools.precissionToolBuzzsawDurability, Tools.precissionToolBuzzsawUsageTime),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		DRILL(Tools.precissionToolDrillDurability, Tools.precissionToolDrillUsageTime),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		INSERTER(Tools.precissionToolInserterDurability, Tools.precissionToolInserterUsageTime),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		SOLDERER(Tools.precissionToolSoldererDurability, Tools.precissionToolSoldererUsageTime),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		WELDER(Tools.precissionToolWelderDurability, Tools.precissionToolWelderUsageTime),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		HAMMER(Tools.precissionToolHammerDurability, Tools.precissionToolHammerUsageTime);
 
 		private final int durability;

@@ -39,6 +39,7 @@ minecraft {
     replace "@VERSION@", modVersion
     mappings = modMappings
     useDepAts = true
+    makeObfSourceJar = false
 }
 
 //--- Handling custom.gradle
@@ -136,6 +137,9 @@ processResources {
     exclude '**/*.bat'
     //Exclude template textures
     exclude '**/*Template.png'
+
+    // This file is used only for gradle to generate correct file
+    exclude '**/IIVersion.gen'
 
     //already excluded from gitignore, but still appear to be included in a locally built jar
     exclude '**/desktop.ini'

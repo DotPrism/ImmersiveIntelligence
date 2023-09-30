@@ -50,33 +50,38 @@ public class BlockIIMetalMultiblock0 extends BlockIIMultiblock<MetalMultiblocks0
 	public enum MetalMultiblocks0 implements IITileMultiblockEnum
 	{
 		@EnumMultiblockProvider(tile = TileEntityRadioStation.class, multiblock = MultiblockRadioStation.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		RADIO_STATION,
 		@EnumMultiblockProvider(tile = TileEntityPrintingPress.class, multiblock = MultiblockPrintingPress.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		PRINTING_PRESS,
 		@EnumMultiblockProvider(tile = TileEntityDataInputMachine.class, multiblock = MultiblockDataInputMachine.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		DATA_INPUT_MACHINE,
 		@EnumMultiblockProvider(tile = TileEntityArithmeticLogicMachine.class, multiblock = MultiblockArithmeticLogicMachine.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		ARITHMETIC_LOGIC_MACHINE,
 		@EnumMultiblockProvider(tile = TileEntityChemicalBath.class, multiblock = MultiblockChemicalBath.class)
-		@IIBlockProperties(needsCustomState = true)
+		@IIBlockProperties(needsCustomState = true, hidden = TernaryValue.TRUE)
 		CHEMICAL_BATH,
 		@EnumMultiblockProvider(tile = TileEntityElectrolyzer.class, multiblock = MultiblockElectrolyzer.class)
-		@IIBlockProperties(needsCustomState = true)
+		@IIBlockProperties(needsCustomState = true, hidden = TernaryValue.TRUE)
 		ELECTROLYZER,
 		@EnumMultiblockProvider(tile = TileEntityPrecisionAssembler.class, multiblock = MultiblockPrecisionAssembler.class)
-		@IIBlockProperties(needsCustomState = true)
+		@IIBlockProperties(needsCustomState = true, hidden = TernaryValue.TRUE)
 		PRECISION_ASSEMBLER,
 		@EnumMultiblockProvider(tile = TileEntityBallisticComputer.class, multiblock = MultiblockBallisticComputer.class)
-		@IIBlockProperties(needsCustomState = true)
+		@IIBlockProperties(needsCustomState = true, hidden = TernaryValue.TRUE)
 		BALLISTIC_COMPUTER,
 		@EnumMultiblockProvider(tile = TileEntityArtilleryHowitzer.class, multiblock = MultiblockArtilleryHowitzer.class)
-		@IIBlockProperties(needsCustomState = true)
+		@IIBlockProperties(needsCustomState = true, hidden = TernaryValue.TRUE)
 		ARTILLERY_HOWITZER,
 
 		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		PERISCOPE, //not implemented
 
 		@EnumMultiblockProvider(tile = TileEntityConveyorScanner.class, multiblock = MultiblockConveyorScanner.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		CONVEYOR_SCANNER,
 
 		@IIBlockProperties(hidden = TernaryValue.TRUE)
@@ -85,9 +90,10 @@ public class BlockIIMetalMultiblock0 extends BlockIIMultiblock<MetalMultiblocks0
 		PACKER_OLD, //deprecated
 
 		@EnumMultiblockProvider(tile = TileEntityPacker.class, multiblock = MultiblockPacker.class)
-		@IIBlockProperties(needsCustomState = true)
+		@IIBlockProperties(needsCustomState = true, hidden = TernaryValue.TRUE)
 		PACKER,
 
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		RAILWAY_PACKER //not implemented
 	}
 

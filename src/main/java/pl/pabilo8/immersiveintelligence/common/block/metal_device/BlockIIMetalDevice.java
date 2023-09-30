@@ -1,23 +1,16 @@
 package pl.pabilo8.immersiveintelligence.common.block.metal_device;
 
 import blusunrize.immersiveengineering.api.IEProperties;
-import blusunrize.immersiveengineering.api.energy.wires.TileEntityImmersiveConnectable;
 import blusunrize.immersiveengineering.client.models.IOBJModelCallback;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.property.ExtendedBlockState;
-import net.minecraftforge.common.property.IExtendedBlockState;
-import net.minecraftforge.common.property.IUnlistedProperty;
 import net.minecraftforge.common.property.Properties;
 import pl.pabilo8.immersiveintelligence.common.block.data_device.tileentity.*;
 import pl.pabilo8.immersiveintelligence.common.block.metal_device.BlockIIMetalDevice.IIBlockTypes_MetalDevice;
@@ -29,11 +22,12 @@ import pl.pabilo8.immersiveintelligence.common.block.metal_device.tileentity.eff
 import pl.pabilo8.immersiveintelligence.common.util.IILib;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIITileProvider;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.EnumTileProvider;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IITileProviderEnum;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 import javax.annotation.Nonnull;
-import java.util.Arrays;
 
 /**
  * @author Pabilo8
@@ -44,26 +38,37 @@ public class BlockIIMetalDevice extends BlockIITileProvider<IIBlockTypes_MetalDe
 	public enum IIBlockTypes_MetalDevice implements IITileProviderEnum
 	{
 		@EnumTileProvider(tile = TileEntityMetalCrate.class)
+		@IIBlockProperties(category = IICategory.LOGISTICS)
 		METAL_CRATE,
 		@EnumTileProvider(tile = TileEntityAmmunitionCrate.class)
+		@IIBlockProperties(category = IICategory.LOGISTICS)
 		AMMUNITION_CRATE,
 		@EnumTileProvider(tile = TileEntitySmallDataBuffer.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		SMALL_DATA_BUFFER,
 		@EnumTileProvider(tile = TileEntityTimedBuffer.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		TIMED_BUFFER,
 		@EnumTileProvider(tile = TileEntityRedstoneBuffer.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		REDSTONE_BUFFER,
 		@EnumTileProvider(tile = TileEntityPunchtapeReader.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		PUNCHTAPE_READER,
 		@EnumTileProvider(tile = TileEntityDataRouter.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		DATA_ROUTER,
 		@EnumTileProvider(tile = TileEntityDataMerger.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		DATA_MERGER,
 		@EnumTileProvider(tile = TileEntityMedicalCrate.class)
+		@IIBlockProperties(category = IICategory.LOGISTICS)
 		MEDIC_CRATE,
 		@EnumTileProvider(tile = TileEntityRepairCrate.class)
+		@IIBlockProperties(category = IICategory.LOGISTICS)
 		REPAIR_CRATE,
 		@EnumTileProvider(tile = TileEntityLatexCollector.class)
+		@IIBlockProperties(category = IICategory.LOGISTICS)
 		LATEX_COLLECTOR
 	}
 

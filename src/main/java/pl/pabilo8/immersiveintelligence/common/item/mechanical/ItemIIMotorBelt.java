@@ -48,10 +48,13 @@ public class ItemIIMotorBelt extends ItemIISubItemsBase<MotorBelt> implements IW
 
 	public enum MotorBelt implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		CLOTH("light_belts", MechanicalDevices.beltLength[0], 1, 6,
 				MechanicalDevices.beltMaxTorque[0], MechanicalDevices.beltTorqueLoss[0]),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		STEEL("heavy_belts", MechanicalDevices.beltLength[1], 1, 8,
 				MechanicalDevices.beltMaxTorque[1], MechanicalDevices.beltTorqueLoss[1]),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		RUBBER("light_belts", MechanicalDevices.beltLength[2], 1, 6,
 				MechanicalDevices.beltMaxTorque[2], MechanicalDevices.beltTorqueLoss[2]);
 

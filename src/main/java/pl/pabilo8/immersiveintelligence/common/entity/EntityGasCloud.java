@@ -6,7 +6,7 @@ import blusunrize.immersiveengineering.common.util.IEFluid;
 import com.google.common.base.Optional;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.MoverType;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -14,10 +14,14 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
 import pl.pabilo8.immersiveintelligence.api.utils.IGasmask;
 import pl.pabilo8.immersiveintelligence.client.fx.ParticleUtils;
+import pl.pabilo8.immersiveintelligence.common.math.AABBMath;
 
 import java.util.List;
 
@@ -63,9 +67,40 @@ public class EntityGasCloud extends Entity
 	}
 
 	@Override
+	public void onAddedToWorld()
+	{
+		super.onAddedToWorld();
+	}
+
+	@Override
+	public void onEntityUpdate()
+	{
+		super.onEntityUpdate();
+		//this.volumetricUpdate();
+	}
+
+	/**
+	 * Update of volumetric filling.<br>
+	 * So GabrielV here, currently there is one method I have in mind that
+	 * we can utilize in volumetric smoke that being<br>
+	 * making voxel volumetric shape (vvs) where some voxels will be emitters for the gas particle.<br>
+	 * Question is how could we achieve vvs in minecraft?
+	 */
+	private void volumetricUpdate()
+	{
+		// TODO: Volumetric Gas fill
+		List<BlockPos> sphere = AABBMath.CreateSphere(new Vec3i(posX, posY - 1, posZ), (int)radius);
+		for (BlockPos pos : sphere) {
+			if (this.world.getBlockState(pos)!=Blocks.AIR.getDefaultState()) continue;
+			this.world.setBlockState(pos, Blocks.GLASS.getDefaultState());
+		}
+		this.world.setBlockState(new BlockPos(posX, posY-1, posZ), Blocks.REDSTONE_BLOCK.getDefaultState());
+		this.setEntityBoundingBox(new AxisAlignedBB(new Vec3d(posX-radius, posY-1, posZ-radius), new Vec3d(posX+radius+1, posY+radius ,posZ+radius+1)));
+	}
+
+	@Override
 	public void onUpdate()
 	{
-		move(MoverType.SELF, 0.01f, 0, 0.01f);
 		super.onUpdate();
 		if(this.fluid==null&&this.world.isRemote)
 		{
@@ -103,7 +138,9 @@ public class EntityGasCloud extends Entity
 				setDead();
 		}
 		else if(ticksExisted%20==0)
+		{
 			ParticleUtils.spawnGasCloud(getPositionVector().addVector(0, 1, 0), radius, fluid.getFluid());
+		}
 	}
 
 	@Override

@@ -21,6 +21,9 @@ import java.util.Set;
  */
 public abstract class IICompatModule
 {
+	/**
+	 * List of compatibility modules in format <code>{@code <}modid, {@link IICompatModule}{@code >}</code>
+	 */
 	public static HashMap<String, Class<? extends IICompatModule>> moduleClasses = new HashMap<>();
 	public static HashMap<String, String> moduleMinModVersions = new HashMap<>();
 	public static Set<IICompatModule> modules = new HashSet<>();
@@ -40,6 +43,7 @@ public abstract class IICompatModule
 		moduleClasses.put("baubles", BaublesHelper.class);
 		moduleClasses.put("opencomputers", OpenComputersHelper.class);
 		moduleClasses.put("computercraft", ComputerCraftHelper.class);
+		moduleClasses.put("toughasnails", ToughAsNailsHelper.class);
 	}
 
 	public static void doModulesPreInit()

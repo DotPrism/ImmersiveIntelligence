@@ -117,18 +117,8 @@ public class RecipeSkinCraftingHandler extends net.minecraftforge.registries.IFo
 				if (IISkinHandler.isValidSkin(skinName))
 				{
 					IISpecialSkin skin = IISkinHandler.getSkin(skinName);
-					boolean eligible = false, doesApply = skin.doesApply(skinnable.getSkinnableName());
 
-					for (String id : skin.uuid)
-					{
-						if (id.replace("-", "").equals(uuid))
-						{
-							eligible = true;
-							break;
-						}
-					}
-
-					if (!eligible||!doesApply) return false;
+					if (!skin.isEligible(uuid)||!skin.doesApply(skinnable.getSkinnableName())) return false;
 				}
 				else
 				{

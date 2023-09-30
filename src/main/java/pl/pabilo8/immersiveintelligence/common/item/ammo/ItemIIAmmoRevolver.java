@@ -37,6 +37,8 @@ import pl.pabilo8.immersiveintelligence.client.model.bullet.ModelBullet1bCal;
 import pl.pabilo8.immersiveintelligence.common.IIContent;
 import pl.pabilo8.immersiveintelligence.common.entity.bullet.EntityBullet;
 import pl.pabilo8.immersiveintelligence.common.util.IILib;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -47,6 +49,7 @@ import java.util.stream.Collectors;
  * @author Pabilo8
  * @since 30-08-2019
  */
+@IIItemProperties(category = IICategory.WARFARE)
 public class ItemIIAmmoRevolver extends ItemBullet implements IAmmo, BulletHandler.IBullet
 {
 	//I hope Blu starts designing things that are extendable, unlike this bullet system

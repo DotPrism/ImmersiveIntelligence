@@ -17,7 +17,9 @@ public class ItemIIVulcanizerMold extends ItemIISubItemsBase<VulcanizerMolds>
 
 	public enum VulcanizerMolds implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.RESOURCE)
 		BELT,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		TIRE
 	}
 }

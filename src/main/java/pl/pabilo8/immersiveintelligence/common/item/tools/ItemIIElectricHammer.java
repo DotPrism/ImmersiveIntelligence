@@ -41,6 +41,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import pl.pabilo8.immersiveintelligence.Config.IIConfig.Tools;
 import pl.pabilo8.immersiveintelligence.common.IIUtils;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
 import pl.pabilo8.immersiveintelligence.common.util.multiblock.IIMultiblockInterfaces.IAdvancedMultiblockTileEntity;
 import pl.pabilo8.immersiveintelligence.common.IIContent;
 import pl.pabilo8.immersiveintelligence.common.IISounds;
@@ -58,6 +60,7 @@ import static blusunrize.immersiveengineering.api.Lib.TOOL_HAMMER;
  * @author Pabilo8
  * @since 2019-05-30
  */
+@IIItemProperties(category = IICategory.ELECTRONICS)
 public class ItemIIElectricHammer extends ItemIIBase implements ITool, IIEEnergyItem
 {
 	public ItemIIElectricHammer()

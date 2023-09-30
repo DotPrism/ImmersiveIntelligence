@@ -13,6 +13,8 @@ import pl.pabilo8.immersiveintelligence.client.model.IBulletModel;
 import pl.pabilo8.immersiveintelligence.client.model.bullet.ModelBullet6bCal;
 import pl.pabilo8.immersiveintelligence.common.entity.bullet.EntityBullet;
 import pl.pabilo8.immersiveintelligence.common.item.ammo.ItemIIAmmoCasing.Casings;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
 
 import javax.annotation.Nonnull;
 
@@ -20,6 +22,7 @@ import javax.annotation.Nonnull;
  * @author Pabilo8
  * @since 30-08-2019
  */
+@IIItemProperties(category = IICategory.WARFARE)
 public class ItemIIAmmoLightArtillery extends ItemIIAmmoBase
 {
 	public ItemIIAmmoLightArtillery()

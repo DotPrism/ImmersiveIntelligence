@@ -8,6 +8,8 @@ import pl.pabilo8.immersiveintelligence.api.bullets.AmmoRegistry.EnumFuseTypes;
 import pl.pabilo8.immersiveintelligence.client.model.IBulletModel;
 import pl.pabilo8.immersiveintelligence.client.model.bullet.ModelBullet2bCal;
 import pl.pabilo8.immersiveintelligence.common.item.ammo.ItemIIAmmoCasing.Casings;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
 
 import javax.annotation.Nonnull;
 
@@ -15,6 +17,7 @@ import javax.annotation.Nonnull;
  * @author Pabilo8
  * @since 30-08-2019
  */
+@IIItemProperties(category = IICategory.WARFARE)
 public class ItemIIAmmoMachinegun extends ItemIIAmmoBase
 {
 	public ItemIIAmmoMachinegun()

@@ -7,7 +7,9 @@ import pl.pabilo8.immersiveintelligence.common.block.metal_device.BlockIIMetalDe
 import pl.pabilo8.immersiveintelligence.common.util.IILib;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIIBase;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockEnum;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 /**
  * @author Pabilo8
@@ -17,12 +19,19 @@ public class BlockIIMetalDecoration extends BlockIIBase<IIBlockTypes_MetalDecora
 {
 	public enum IIBlockTypes_MetalDecoration implements IIBlockEnum
 	{
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		COIL_DATA,
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		ELECTRONIC_ENGINEERING,
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		ADVANCED_ELECTRONIC_ENGINEERING,
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		MECHANICAL_ENGINEERING,
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		HEAVY_MECHANICAL_ENGINEERING,
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		COIL_STEEL_MOTOR_BELT,
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		COMPUTER_ENGINEERING
 	}
 

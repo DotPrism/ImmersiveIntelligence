@@ -11,7 +11,9 @@ import pl.pabilo8.immersiveintelligence.common.block.fortification.BlockIIMetalF
 import pl.pabilo8.immersiveintelligence.common.util.IILib;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIIBase;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockEnum;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -37,6 +39,7 @@ public class BlockIIMetalFortification1 extends BlockIIBase<IIBlockTypes_MetalFo
 
 	public enum IIBlockTypes_MetalFortification1 implements IIBlockEnum
 	{
+		@IIBlockProperties(category = IICategory.WARFARE)
 		TANK_TRAP
 	}
 

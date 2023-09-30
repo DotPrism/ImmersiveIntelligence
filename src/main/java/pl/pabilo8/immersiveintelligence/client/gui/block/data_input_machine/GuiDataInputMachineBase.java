@@ -28,6 +28,7 @@ import pl.pabilo8.immersiveintelligence.client.gui.elements.GuiLabelNoShadow;
 import pl.pabilo8.immersiveintelligence.client.gui.elements.GuiWidgetManualWrapper;
 import pl.pabilo8.immersiveintelligence.client.gui.elements.buttons.GuiButtonTab;
 import pl.pabilo8.immersiveintelligence.common.IIGuiList;
+import pl.pabilo8.immersiveintelligence.common.IILogger;
 import pl.pabilo8.immersiveintelligence.common.IIUtils;
 import pl.pabilo8.immersiveintelligence.common.block.multiblock.metal_multiblock0.tileentity.TileEntityDataInputMachine;
 import pl.pabilo8.immersiveintelligence.common.gui.ContainerDataInputMachine;
@@ -298,6 +299,7 @@ public class GuiDataInputMachineBase extends GuiIEContainerBase implements ITabb
 	@Override
 	public void editVariable(char c, IDataType type)
 	{
+		IILogger.info("Editing variable ["+c+"] of type "+type.getName());
 		if(!list.variables.containsKey(c)||list.getPacketVariable(c).getClass()!=type.getClass())
 			list.setVariable(c, type);
 

@@ -26,6 +26,9 @@ custom.gradle
 run/
 hs_err_pid*
 
+# Libs
+libs/
+
 # Modworks Generated Sources
 src/main/generated/*
 

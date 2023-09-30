@@ -7,7 +7,9 @@ import pl.pabilo8.immersiveintelligence.common.block.simple.BlockIIClothDecorati
 import pl.pabilo8.immersiveintelligence.common.util.IILib;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIIBase;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockEnum;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 /**
  * @author Pabilo8
@@ -28,8 +30,11 @@ public class BlockIIClothDecoration extends BlockIIBase<ClothDecorations>
 
 	public enum ClothDecorations implements IIBlockEnum
 	{
+		@IIBlockProperties(category = IICategory.RESOURCE)
 		COIL_ROPE,
+		@IIBlockProperties(category = IICategory.RESOURCE)
 		COIL_CLOTH_MOTOR_BELT,
+		@IIBlockProperties(category = IICategory.RESOURCE)
 		COIL_RUBBER_MOTOR_BELT
 	}
 }

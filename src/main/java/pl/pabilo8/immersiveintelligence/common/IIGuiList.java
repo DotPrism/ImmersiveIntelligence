@@ -11,7 +11,7 @@ import pl.pabilo8.immersiveintelligence.api.utils.vehicles.IUpgradableMachine;
 import pl.pabilo8.immersiveintelligence.client.gui.GuiPrintedPage;
 import pl.pabilo8.immersiveintelligence.client.gui.block.*;
 import pl.pabilo8.immersiveintelligence.client.gui.block.ammunition_production.GuiAmmunitionWorkshop;
-import pl.pabilo8.immersiveintelligence.client.gui.block.ammunition_production.GuiProjectileWorkshop;
+import pl.pabilo8.immersiveintelligence.client.gui.block.ammunition_production.GuiProjectileForge;
 import pl.pabilo8.immersiveintelligence.client.gui.block.arithmetic_logic_machine.GuiArithmeticLogicMachineEdit;
 import pl.pabilo8.immersiveintelligence.client.gui.block.arithmetic_logic_machine.GuiArithmeticLogicMachineStorage;
 import pl.pabilo8.immersiveintelligence.client.gui.block.arithmetic_logic_machine.GuiArithmeticMachineVariables;
@@ -176,8 +176,8 @@ public enum IIGuiList
 			ContainerCoagulator::new
 	),
 
-	GUI_PROJECTILE_WORKSHOP(TileEntityProjectileWorkshop.class,
-			ContainerProjectileWorkshop::new
+	GUI_PROJECTILE_WORKSHOP(TileEntityProjectileForge.class,
+			ContainerProjectileForge::new
 	),
 	GUI_AMMUNITION_WORKSHOP(TileEntityAmmunitionWorkshop.class,
 			ContainerAmmunitionWorkshop::new
@@ -260,7 +260,7 @@ public enum IIGuiList
 		IIGuiList.GUI_CHEMICAL_PAINTER.setClientGui(GuiChemicalPainter::new);
 
 		IIGuiList.GUI_AMMUNITION_WORKSHOP.setClientGui(GuiAmmunitionWorkshop::new);
-		IIGuiList.GUI_PROJECTILE_WORKSHOP.setClientGui(GuiProjectileWorkshop::new);
+		IIGuiList.GUI_PROJECTILE_WORKSHOP.setClientGui(GuiProjectileForge::new);
 
 		IIGuiList.RADAR.setClientGui(GuiRadar::new);
 	}

@@ -714,7 +714,7 @@ tile.immersiveintelligence.gate_multiblock.aluminium_chain_fence_gate.name=Alumi
 
 tile.immersiveintelligence.metal_multiblock1.filler.name=Filler
 tile.immersiveintelligence.metal_multiblock1.ammunition_workshop.name=Ammunition Workshop
-tile.immersiveintelligence.metal_multiblock1.projectile_workshop.name=Projectile Workshop
+tile.immersiveintelligence.metal_multiblock1.projectile_forge.name=Projectile Forge
 
 tile.immersiveintelligence.metal_multiblock1.chemical_painter.name=Chemical Painter
 desc.immersiveintelligence.metal_multiblock1.chemical_painter.color.rgb=Display in RGB
@@ -1427,6 +1427,39 @@ advancement.immersiveintelligence.root.desc=RTFM?
 advancement.immersiveintelligence.connect_belt=Powerful Conveying
 advancement.immersiveintelligence.connect_belt.desc=Link two mechanical wheels with a belt coil
 
+advancement.immersiveintelligence.craft_diy=DIY
+advancement.immersiveintelligence.craft_diy.desc=Craft the Handmade Rifle
+
+advancement.immersiveintelligence.craft_rifle=People's Gun
+advancement.immersiveintelligence.craft_rifle.desc=Create the mass production Rifle
+
+advancement.immersiveintelligence.for_the_emperor=For The Emperor!
+advancement.immersiveintelligence.for_the_emperor.desc=Attach a bayonet to the Rifle
+
+advancement.immersiveintelligence.craft_stg=We should all have Sturmgewehr
+advancement.immersiveintelligence.craft_stg.desc=Craft the STG
+
+advancement.immersiveintelligence.weapon_of_war=This... Is a weapon of war
+advancement.immersiveintelligence.weapon_of_war.desc=Upgrade the STG with a scope and electric firing motor
+
+advancement.immersiveintelligence.the_accelerator=The Accelerator
+advancement.immersiveintelligence.the_accelerator.desc=Upgrade the STG with a grenade launcher and a railgun barrel
+
+advancement.immersiveintelligence.special_operations_initiative=Special Operations Initiative
+advancement.immersiveintelligence.special_operations_initiative.desc=Upgrade the STG with a rangefinder
+
+advancement.immersiveintelligence.craft_smg=Tommy's Toy
+advancement.immersiveintelligence.craft_smg.desc=Craft the SMG
+
+advancement.immersiveintelligence.infinite_power=Infinite Power
+advancement.immersiveintelligence.infinite_power.desc=Upgrade the SMG with a bottom loader and heavy barrel
+
+advancement.immersiveintelligence.the_silent_unseen=The Silent Unseen
+advancement.immersiveintelligence.the_silent_unseen.desc=Upgrade the SMG with a folding stock and suppressor
+
+advancement.immersiveintelligence.craft_cpds=It costs 10 stacks of steel to fire this weapon for 12 seconds
+advancement.immersiveintelligence.craft_cpds.desc=Craft the CPDS drum magazine
+
 #Reference to Tiger 1 tank memes
 advancement.immersiveintelligence.craft_steel_belt=Hans, ze Transmission Works!
 advancement.immersiveintelligence.craft_steel_belt.desc=Craft a Steel Motor Belt
@@ -1850,20 +1883,20 @@ ie.manual.entry.bullet_production.name=Bullet Production
 ie.manual.entry.bullet_production.subtext=It's a shell, not a pencil!
 ie.manual.entry.bullet_production0=To produce ammunition 2 parts are needed: the core - a container for explosives, shrapnel and other components and the casing - into which the core is put. Production of these parts consists of multiple steps and differs depending on type and complexity of your ammunition.
 ie.manual.entry.bullet_production1=Let’s start with the casing. Most casings can be produced using an appropriate mold in the <link;metalPress;§o§nmetal §o§npress§r;>, but some, like the <link;explosives_mines;§o§nradio §o§nexplosives§r;5>, require crafting.<br>If you’re producing bullets, the next step is using the <link;filler;§o§nFiller§r;> to fill the bullet casing with gunpowder. The casing is now finished and ready for the assembly.
-ie.manual.entry.bullet_production2=The core can be produced in the <link;projectile_workshop;§o§nProjectile§o§nWorkshop§r;> using metal nuggets, remember to use the <link;bullet_cores;§o§nappropriate §o§nmetal §o§nfor §o§nthe §o§njob§r;>: uranium has a better penetration value, but smaller component effect than brass. Another modifier you can pick is the <link;core_types;§o§ncore §o§ntype§r;>, which determines how many components the core can store.<br>After your core is produced, you can fill it with components using another projectile workshop with a filler upgrade installed. This step is optional and can be repeated multiple times with the same or different components.
+ie.manual.entry.bullet_production2=The core can be produced in the <link;projectile_forge;§o§nProjectile§o§nForge§r;> using metal nuggets, remember to use the <link;bullet_cores;§o§nappropriate §o§nmetal §o§nfor §o§nthe §o§njob§r;>: uranium has a better penetration value, but smaller component effect than brass. Another modifier you can pick is the <link;core_types;§o§ncore §o§ntype§r;>, which determines how many components the core can store.<br>After your core is produced, you can fill it with components using another projectile workshop with a filler upgrade installed. This step is optional and can be repeated multiple times with the same or different components.
 ie.manual.entry.bullet_production3=The final stage is the bullet assembly in the <link;ammunition_workshop;§o§nAmmunition§o§nWorkshop§r;>. Here you can select the <link;bullet_fuses;§o§nfuse§r;>. Keep in mind not all fuse types are supported by certain ammunition like grenades and explosives.<br>There is also a next, optional stage - the Chemical Painter. Ammunition can be painted for easier identification and higher uniformity.
 
 ie.manual.entry.ammunition_workshop.name=Ammunition Workshop
 ie.manual.entry.ammunition_workshop.subtext=Heart of the War Machine
 ie.manual.entry.ammunition_workshop0=Ammunition workshop performs the final part of the <link;bullet_production;§o§nammunition §o§nproduction§r;> - the assembly. To form it use a hammer on the steel scaffolding block between two conveyors.
-ie.manual.entry.ammunition_workshop1=Ammunition workshop assembles ammunition from a core produced in the <link;projectile_workshop;§o§nProjectile §o§nWorkshop§r;> and a casing. It also sets the fuse determining under what conditions its components will detonate. Fuses can be set through the interface or a data packet. To operate, the machine requires electricity.
+ie.manual.entry.ammunition_workshop1=Ammunition workshop assembles ammunition from a core produced in the <link;projectile_forge;§o§nProjectile §o§nForge§r;> and a casing. It also sets the fuse determining under what conditions its components will detonate. Fuses can be set through the interface or a data packet. To operate, the machine requires electricity.
 
 #Reference to its purpose-changing upgrade
-ie.manual.entry.projectile_workshop.name=Projectile Workshop
-ie.manual.entry.projectile_workshop.subtext=Multi-Purpose, Multi-Tool
-ie.manual.entry.projectile_workshop0=The Projectile Workshop is a machine used to manufacture or fill cores - the projectile parts of bullets with components. To form it use a hammer on the left metal crate.
-ie.manual.entry.projectile_workshop1=In default configuration, the projectile workshop produces <link;bullet_cores;§o§ncores §o§nfrom §o§nmetal §o§nnuggets§r;>. To operate the machine requires electricity. Trough its interface the produced ammunition and core type can be set. It is also possible to do so using the data system.
-ie.manual.entry.projectile_workshop2=The Projectile Workshop can be upgraded to become a Projectile Filler. This changes the role to filling cores produced by other Projectile Workshops using <link;bullet_components;§o§nComponents§r;>. An amount to be filled can be specified using the interface or trough the data system. The max amount is determined by the core type.
+ie.manual.entry.projectile_forge.name=Projectile Forge
+ie.manual.entry.projectile_forge.subtext=Multi-Purpose, Multi-Tool
+ie.manual.entry.projectile_forge=The Projectile Forge is a machine used to manufacture or fill cores - the projectile parts of bullets with components. To form it use a hammer on the left metal crate.
+ie.manual.entry.projectile_forge=In default configuration, the projectile forge produces <link;bullet_cores;§o§ncores §o§nfrom §o§nmetal §o§nnuggets§r;>. To operate the machine requires electricity. Trough its interface the produced ammunition and core type can be set. It is also possible to do so using the data system.
+ie.manual.entry.projectile_forge=The Projectile forge can be upgraded to become a Projectile Filler. This changes the role to filling cores produced by other Projectile Forges using <link;bullet_components;§o§nComponents§r;>. An amount to be filled can be specified using the interface or trough the data system. The max amount is determined by the core type.
 
 #Reference to Dicker Bertha cannon
 ie.manual.entry.artillery_howitzer.name=Artillery Howitzer

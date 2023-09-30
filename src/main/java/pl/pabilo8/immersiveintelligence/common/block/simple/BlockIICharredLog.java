@@ -19,6 +19,7 @@ import pl.pabilo8.immersiveintelligence.common.util.block.BlockIIBase;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockEnum;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -38,7 +39,7 @@ public class BlockIICharredLog extends BlockIIBase<CharredLogs>
 
 	public enum CharredLogs implements IIBlockEnum
 	{
-		@IIBlockProperties(oreDict = {"logWood", "logCharred"})
+		@IIBlockProperties(oreDict = {"logWood", "logCharred"}, category = IICategory.RESOURCE)
 		MAIN
 	}
 

@@ -53,6 +53,9 @@ import pl.pabilo8.immersiveintelligence.common.util.IBatchOredictRegister;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIIFluid;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIISlab;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIIStairs;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemStack;
 import pl.pabilo8.immersiveintelligence.common.world.BiomeWasteland;
 
 import java.util.ArrayList;
@@ -70,8 +73,11 @@ public class IIContent
 {
 	public static final List<Block> BLOCKS = new ArrayList<>();
 	public static final List<Item> ITEMS = new ArrayList<>();
+
+	public static final List<IIItemStack> CATEGORY_ITEM_MAP = new ArrayList<>();
 	public static final List<Class<? extends TileEntity>> TILE_ENTITIES = new ArrayList<>();
 	public static final List<IMultiblock> MULTIBLOCKS = new ArrayList<>();
+
 
 	public static final IICreativeTab II_CREATIVE_TAB = new IICreativeTab(MODID);
 
@@ -167,7 +173,7 @@ public class IIContent
 	public static ItemIIMineDetector itemMineDetector = new ItemIIMineDetector();
 
 	public static ItemIIDrillHead itemDrillhead = new ItemIIDrillHead();
-	//Don't know if i should make a seperate item for a torque meter
+	//Don't know if I should make a separate item for a torque meter
 	public static ItemIITachometer itemTachometer = new ItemIITachometer();
 	public static ItemIIDataWireCoil itemDataWireCoil = new ItemIIDataWireCoil();
 	public static ItemIISmallWireCoil itemSmallWireCoil = new ItemIISmallWireCoil();
@@ -214,6 +220,7 @@ public class IIContent
 
 	//metal
 	@IBatchOredictRegister(oreDict = "ore")
+	@IIBlockProperties(category = IICategory.RESOURCE)
 	public static BlockIIOre blockOre = new BlockIIOre();
 	@IBatchOredictRegister(oreDict = "sheetmetal")
 	public static BlockIIMetalBase blockSheetmetal = new BlockIIMetalBase("sheetmetal");

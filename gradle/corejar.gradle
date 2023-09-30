@@ -32,8 +32,8 @@ if (hasKeyStore())
         alias = getOr("SIGNING_KEY_ALIAS", project.keyStoreAlias)
         storePass = getOr("SIGNING_KEY_PASSWORD", project.keyStoreKeyPass)
         keyPass = getOr("SIGNING_STORE_PASSWORD", project.keyStorePass)
-        inputFile = coreJar.archivePath
-        outputFile = coreJar.archivePath
+        inputFile = coreJar.archiveFile
+        outputFile = coreJar.archiveFile
     }
 
     tasks.register('signMainJar', SignJar) {
@@ -46,8 +46,8 @@ if (hasKeyStore())
         alias = getOr("SIGNING_KEY_ALIAS",project.keyStoreAlias)
         storePass = getOr("SIGNING_KEY_PASSWORD",project.keyStoreKeyPass)
         keyPass = getOr("SIGNING_STORE_PASSWORD",project.keyStorePass)
-        inputFile = jar.archivePath
-        outputFile = jar.archivePath
+        inputFile = jar.archiveFile
+        outputFile = jar.archiveFile
     }
 
     build.dependsOn signMainJar

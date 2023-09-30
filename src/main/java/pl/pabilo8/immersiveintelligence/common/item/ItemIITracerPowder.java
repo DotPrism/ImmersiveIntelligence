@@ -32,9 +32,9 @@ public class ItemIITracerPowder extends ItemIISubItemsBase<Powders>
 
 	enum Powders implements IIItemEnum
 	{
-		@IIItemProperties(oreDict = {"dustTracer"})
+		@IIItemProperties(oreDict = {"dustTracer"}, category = IICategory.RESOURCE)
 		TRACER_POWDER,
-		@IIItemProperties(oreDict = {"dustFlare"})
+		@IIItemProperties(oreDict = {"dustFlare"}, category = IICategory.RESOURCE)
 		FLARE_POWDER
 	}
 

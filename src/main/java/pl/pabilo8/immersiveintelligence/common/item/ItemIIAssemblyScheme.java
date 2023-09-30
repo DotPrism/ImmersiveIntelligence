@@ -18,6 +18,8 @@ import pl.pabilo8.immersiveintelligence.api.crafting.PrecissionAssemblerRecipe;
 import pl.pabilo8.immersiveintelligence.client.IIClientUtils;
 import pl.pabilo8.immersiveintelligence.common.IIUtils;
 import pl.pabilo8.immersiveintelligence.common.util.IILib;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
 import pl.pabilo8.immersiveintelligence.common.util.item.ItemIIBase;
 
 import javax.annotation.Nullable;
@@ -28,6 +30,7 @@ import java.util.List;
  * @author Pabilo8
  * @since 25-06-2019
  */
+@IIItemProperties(category = IICategory.RESOURCE)
 public class ItemIIAssemblyScheme extends ItemIIBase
 {
 	public ItemIIAssemblyScheme()

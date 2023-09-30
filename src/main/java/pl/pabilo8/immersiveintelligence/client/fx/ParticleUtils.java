@@ -7,6 +7,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleCloud;
+import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
@@ -17,17 +18,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import pl.pabilo8.immersiveintelligence.client.fx.particles.*;
-import pl.pabilo8.immersiveintelligence.client.fx.particles.ParticleGasCloud.ParticleFlareFlash;
 import pl.pabilo8.immersiveintelligence.client.fx.nuke.ParticleAtomFog;
 import pl.pabilo8.immersiveintelligence.client.fx.nuke.ParticleAtomicBoomCore;
 import pl.pabilo8.immersiveintelligence.client.fx.nuke.ParticleAtomicBoomRing;
 import pl.pabilo8.immersiveintelligence.client.fx.nuke.ParticleShockwave;
+import pl.pabilo8.immersiveintelligence.client.fx.particles.*;
+import pl.pabilo8.immersiveintelligence.client.fx.particles.ParticleGasCloud.ParticleFlareFlash;
 import pl.pabilo8.immersiveintelligence.client.util.tmt.ModelRendererTurbo;
 import pl.pabilo8.immersiveintelligence.common.entity.bullet.EntityAtomicBoom;
 import pl.pabilo8.immersiveintelligence.common.util.IIExplosion;
 
-import java.security.Provider;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -48,6 +48,11 @@ public class ParticleUtils
 
 	public static Supplier<Float> randFloat = Utils.RAND::nextFloat;
 	public static Supplier<Double> randDouble = Utils.RAND::nextDouble;
+
+	public static ParticleManager getParticleManager()
+	{
+		return Minecraft.getMinecraft().effectRenderer;
+	}
 
 	public static void spawnExplosionBoomFX(World world, Vec3d pos, float radius, float strength, boolean flaming, boolean damagesTerrain)
 	{

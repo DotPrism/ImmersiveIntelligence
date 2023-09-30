@@ -7,6 +7,7 @@ import net.minecraft.util.BlockRenderLayer;
 import pl.pabilo8.immersiveintelligence.common.IIUtils;
 import pl.pabilo8.immersiveintelligence.common.util.IBatchOredictRegister;
 import pl.pabilo8.immersiveintelligence.common.util.ISerializableEnum;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 import javax.annotation.Nullable;
 import java.lang.annotation.ElementType;
@@ -52,7 +53,7 @@ public class IIBlockInterfaces
 	 * in integer values, -1 means the default value of the block
 	 */
 	@Retention(RetentionPolicy.RUNTIME)
-	@Target({ElementType.FIELD})
+	@Target({ElementType.FIELD, ElementType.TYPE})
 	public @interface IIBlockProperties
 	{
 		/**
@@ -64,6 +65,8 @@ public class IIBlockInterfaces
 		 * @return whether this SubBlock is visible as item
 		 */
 		TernaryValue hidden() default TernaryValue.UNSET;
+
+		IICategory category() default IICategory.ELECTRONICS;
 
 		/**
 		 * @return whether this SubBlock is visible as item

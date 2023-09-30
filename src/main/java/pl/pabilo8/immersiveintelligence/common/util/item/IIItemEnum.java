@@ -9,8 +9,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import java.lang.reflect.AnnotatedElement;
-import java.lang.reflect.Field;
 
 /**
  * @author Pabilo8
@@ -18,6 +16,22 @@ import java.lang.reflect.Field;
  */
 public interface IIItemEnum extends ISerializableEnum
 {
+	enum IICategory {
+		ELECTRONICS("electronics"), LOGISTICS("logistics"), WARFARE("warfare"), INTELLIGENCE("intelligence"), RESOURCE("resources");
+
+		public final String name;
+		IICategory(String name)
+		{
+			this.name = name;
+		}
+
+		@Override
+		public String toString()
+		{
+			return name;
+		}
+	}
+
 	/**
 	 * @return this SubItem's ID - the metadata number
 	 */
@@ -40,6 +54,13 @@ public interface IIItemEnum extends ISerializableEnum
 		return -1;
 	}
 
+	default IICategory getCategory()
+	{
+		IIItemProperties tp = getProperties();
+		if (tp==null)return IICategory.ELECTRONICS;
+		return tp.category();
+	}
+
 	@Nonnull
 	default String[] getOreDict()
 	{
@@ -56,10 +77,12 @@ public interface IIItemEnum extends ISerializableEnum
 	}
 
 	@Retention(RetentionPolicy.RUNTIME)
-	@Target({ElementType.FIELD})
+	@Target({ElementType.FIELD, ElementType.TYPE})
 	@interface IIItemProperties
 	{
 		boolean hidden() default false;
+
+		IICategory category() default IICategory.ELECTRONICS;
 
 		String[] oreDict() default {};
 

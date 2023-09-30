@@ -54,6 +54,10 @@ public class Config
 		@Comment({"A list of all mods that IEn has integrated compatability for", "Setting any of these to false disables the respective compat"})
 		public static Map<String, Boolean> compat = Maps.newHashMap(Maps.toMap(IICompatModule.moduleClasses.keySet(), (s) -> Boolean.TRUE));
 
+		@Comment({"Enable II experimental content. Very unstable"})
+		@RequiresMcRestart
+		public static boolean enableExperimentalContent = false;
+
 		@Comment({"The maximum frequency for basic radios."})
 		public static int radioBasicMaxFrequency = 32;
 
@@ -926,7 +930,7 @@ public class Config
 				public static int energyCapacity = 16000;
 			}
 
-			public static class ProjectileWorkshop
+			public static class ProjectileForge
 			{
 				@Comment({"Energy capacity of the ammunition workshop (in IF)."})
 				public static int energyCapacity = 16000;

@@ -4,10 +4,12 @@ import blusunrize.immersiveengineering.common.util.ItemNBTHelper;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import pl.pabilo8.immersiveintelligence.Config.IIConfig.Weapons.Rifle;
@@ -15,6 +17,7 @@ import pl.pabilo8.immersiveintelligence.ImmersiveIntelligence;
 import pl.pabilo8.immersiveintelligence.api.utils.IAdvancedZoomTool;
 import pl.pabilo8.immersiveintelligence.common.IIContent;
 import pl.pabilo8.immersiveintelligence.common.IISounds;
+import pl.pabilo8.immersiveintelligence.common.IIUtils;
 import pl.pabilo8.immersiveintelligence.common.item.ammo.ItemIIBulletMagazine.Magazines;
 import pl.pabilo8.immersiveintelligence.common.item.weapons.ItemIIWeaponUpgrade.WeaponUpgrades;
 import pl.pabilo8.immersiveintelligence.common.item.weapons.ammohandler.AmmoHandler;
@@ -22,6 +25,8 @@ import pl.pabilo8.immersiveintelligence.common.item.weapons.ammohandler.AmmoHand
 import pl.pabilo8.immersiveintelligence.common.item.weapons.ammohandler.AmmoHandlerMagazine;
 import pl.pabilo8.immersiveintelligence.common.util.AdvancedSounds.RangedSound;
 import pl.pabilo8.immersiveintelligence.common.util.easynbt.EasyNBT;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
 
 import javax.annotation.Nullable;
 
@@ -29,6 +34,7 @@ import javax.annotation.Nullable;
  * @author Pabilo8
  * @since 01-11-2019
  */
+@IIItemProperties(category = IICategory.WARFARE)
 public class ItemIIRifle extends ItemIIGunBase implements IAdvancedZoomTool
 {
 	//--- NBT Values Reference ---//
@@ -108,8 +114,8 @@ public class ItemIIRifle extends ItemIIGunBase implements IAdvancedZoomTool
 	@Override
 	public void removeFromWorkbench(EntityPlayer player, ItemStack stack)
 	{
-		//NBTTagCompound upgrades = getUpgrades(stack);
-		// TODO: 31.01.2023 advancements
+		NBTTagCompound upgrades = getUpgrades(stack);
+		if (upgrades.hasKey("melee")) IIUtils.unlockIIAdvancement(player, "main/for_the_emperor");
 	}
 
 	@Override
@@ -149,6 +155,11 @@ public class ItemIIRifle extends ItemIIGunBase implements IAdvancedZoomTool
 			handmade.setTagCompound(EasyNBT.newNBT().withBoolean(HANDMADE, true).unwrap());
 			list.add(handmade);
 		}
+	}
+
+	public boolean isHandmade(ItemStack stack)
+	{
+		return ItemNBTHelper.hasKey(stack, HANDMADE);
 	}
 
 	@Override
@@ -191,6 +202,16 @@ public class ItemIIRifle extends ItemIIGunBase implements IAdvancedZoomTool
 	public int getReloadTime(ItemStack weapon, ItemStack loaded, EasyNBT nbt)
 	{
 		return hasIIUpgrades(weapon, WeaponUpgrades.SEMI_AUTOMATIC)?Rifle.magazineReloadTime: Rifle.bulletReloadTime;
+	}
+
+	@Override
+	public void onCreated(ItemStack stack, World worldIn, EntityPlayer playerIn)
+	{
+		super.onCreated(stack, worldIn, playerIn);
+		if (isHandmade(stack))
+			IIUtils.unlockIIAdvancement(playerIn, "main/craft_handmade_rifle");
+		else
+			IIUtils.unlockIIAdvancement(playerIn, "main/craft_rifle");
 	}
 
 	@Override

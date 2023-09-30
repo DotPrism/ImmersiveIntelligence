@@ -2,7 +2,6 @@ package pl.pabilo8.immersiveintelligence.common.item.ammo;
 
 import pl.pabilo8.immersiveintelligence.common.item.ammo.ItemIIAmmoCasing.Casings;
 import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum;
-import pl.pabilo8.immersiveintelligence.common.util.item.ItemIIBase;
 import pl.pabilo8.immersiveintelligence.common.util.item.ItemIISubItemsBase;
 
 /**
@@ -26,27 +25,29 @@ public class ItemIIAmmoCasing extends ItemIISubItemsBase<Casings>
 
 	public enum Casings implements IIItemEnum
 	{
-		@IIItemProperties(stackSize = 1)
+		@IIItemProperties(stackSize = 1, category = IICategory.WARFARE)
 		ARTILLERY_8BCAL,
-		@IIItemProperties(stackSize = 1)
+		@IIItemProperties(stackSize = 1, category = IICategory.WARFARE)
 		MORTAR_6BCAL,
-		@IIItemProperties(stackSize = 1)
+		@IIItemProperties(stackSize = 1, category = IICategory.WARFARE)
 		LIGHT_ARTILLERY_6BCAL,
 
-		@IIItemProperties(stackSize = 24)
+		@IIItemProperties(stackSize = 24, category = IICategory.WARFARE)
 		AUTOCANNON_3BCAL,
-		@IIItemProperties(stackSize = 24)
+		@IIItemProperties(stackSize = 24, category = IICategory.WARFARE)
 		MG_2BCAL,
-		@IIItemProperties(stackSize = 32)
+		@IIItemProperties(stackSize = 32, category = IICategory.WARFARE)
 		STG_1BCAL,
-		@IIItemProperties(stackSize = 48)
+		@IIItemProperties(stackSize = 48, category = IICategory.WARFARE)
 		SMG_1BCAL,
 
-		@IIItemProperties(stackSize = 1)
+		@IIItemProperties(stackSize = 1, category = IICategory.WARFARE)
 		NAVAL_MINE,
+		@IIItemProperties(category = IICategory.WARFARE)
 		TRIPMINE,
+		@IIItemProperties(category = IICategory.WARFARE)
 		TELLERMINE,
-		@IIItemProperties(stackSize = 1)
+		@IIItemProperties(stackSize = 1, category = IICategory.WARFARE)
 		RADIO_EXPLOSIVES
 	}
 }

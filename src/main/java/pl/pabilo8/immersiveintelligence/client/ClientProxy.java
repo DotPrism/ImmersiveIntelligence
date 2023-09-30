@@ -96,10 +96,7 @@ import pl.pabilo8.immersiveintelligence.client.render.multiblock.wooden.*;
 import pl.pabilo8.immersiveintelligence.client.util.ShaderUtil;
 import pl.pabilo8.immersiveintelligence.client.util.font.IIFontRenderer;
 import pl.pabilo8.immersiveintelligence.client.util.font.IIFontRendererCustomGlyphs;
-import pl.pabilo8.immersiveintelligence.common.CommonProxy;
-import pl.pabilo8.immersiveintelligence.common.IIContent;
-import pl.pabilo8.immersiveintelligence.common.IIGuiList;
-import pl.pabilo8.immersiveintelligence.common.IILogger;
+import pl.pabilo8.immersiveintelligence.common.*;
 import pl.pabilo8.immersiveintelligence.common.block.data_device.BlockIIDataDevice;
 import pl.pabilo8.immersiveintelligence.common.block.data_device.tileentity.*;
 import pl.pabilo8.immersiveintelligence.common.block.fortification.tileentity.TileEntityMineSign;
@@ -160,7 +157,7 @@ import java.util.Map.Entry;
  */
 @SuppressWarnings("deprecation")
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = ImmersiveIntelligence.MODID)
-public class ClientProxy extends CommonProxy
+public class 	ClientProxy extends CommonProxy
 {
 	IKeyConflictContext passenger_action = new IKeyConflictContext()
 	{
@@ -360,6 +357,8 @@ public class ClientProxy extends CommonProxy
 		super.preInit();
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.register(IIModelRegistry.instance);
+		MinecraftForge.EVENT_BUS.register(new DevWarningEvent());
+		MinecraftForge.EVENT_BUS.register(new IICreativeTabHandler());
 		OBJLoader.INSTANCE.addDomain(ImmersiveIntelligence.MODID);
 		IEOBJLoader.instance.addDomain(ImmersiveIntelligence.MODID);
 
@@ -738,8 +737,9 @@ public class ClientProxy extends CommonProxy
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAmmunitionWorkshop.class, new AmmunitionWorkshopRenderer().subscribeToList("ammunition_workshop"));
 		ForgeHooksClient.registerTESRItemStack(Item.getItemFromBlock(IIContent.blockMetalMultiblock1), MetalMultiblocks1.AMMUNITION_WORKSHOP.getMeta(), TileEntityAmmunitionWorkshop.class);
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityProjectileWorkshop.class, new ProjectileWorkshopRenderer().subscribeToList("projectile_workshop"));
-		ForgeHooksClient.registerTESRItemStack(Item.getItemFromBlock(IIContent.blockMetalMultiblock1), MetalMultiblocks1.PROJECTILE_WORKSHOP.getMeta(), TileEntityProjectileWorkshop.class);
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityProjectileForge.class, new ProjectileForgeRenderer().subscribeToList("projectile_workshop"));
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityProjectileForge.class, new ProjectileForgeRenderer().subscribeToList("projectile_forge"));
+		ForgeHooksClient.registerTESRItemStack(Item.getItemFromBlock(IIContent.blockMetalMultiblock1), MetalMultiblocks1.PROJECTILE_WORKSHOP.getMeta(), TileEntityProjectileForge.class);
 
 
 		registerTileRenderer(SawmillRenderer.class);

@@ -546,9 +546,14 @@ public class IIUtils
 		return result.toString();
 	}
 
+	/**
+	 * Unlocks an advancement if it was not previously unlocked by player
+	 * @param player Player entity that should have advancement unlocked
+	 * @param name Name of the advancement
+	 */
 	public static void unlockIIAdvancement(EntityPlayer player, String name)
 	{
-		if(player instanceof EntityPlayerMP)
+		if(player instanceof EntityPlayerMP&&!hasUnlockedIIAdvancement(player, name))
 		{
 			PlayerAdvancements advancements = ((EntityPlayerMP)player).getAdvancements();
 			AdvancementManager manager = ((WorldServer)player.getEntityWorld()).getAdvancementManager();
@@ -558,6 +563,11 @@ public class IIUtils
 		}
 	}
 
+	/**
+	 * @param player Player entity to check for advancement
+	 * @param name Name of the advancement
+	 * @return Whenever <code>player</code> has unlocked the advancement
+	 */
 	public static boolean hasUnlockedIIAdvancement(EntityPlayer player, String name)
 	{
 		if(player instanceof EntityPlayerMP)
@@ -571,6 +581,10 @@ public class IIUtils
 		return false;
 	}
 
+	/**
+	 * @param stack Item stack
+	 * @return Whenever <code>stack</code> is a wrench item
+	 */
 	public static boolean isWrench(ItemStack stack)
 	{
 		if(stack.isEmpty())
@@ -578,6 +592,10 @@ public class IIUtils
 		return stack.getItem().getToolClasses(stack).contains(IILib.TOOL_WRENCH)&&stack.getItem() instanceof IWrench;
 	}
 
+	/**
+	 * @param stack Item stack
+	 * @return Whenever <code>stack</code> is a tachometer item
+	 */
 	public static boolean isTachometer(ItemStack stack)
 	{
 		if(stack.isEmpty())
@@ -881,6 +899,18 @@ public class IIUtils
 			if(field.isAnnotationPresent(annotationClass))
 				return field.getAnnotation(annotationClass);
 		} catch(NoSuchFieldException ignored) {}
+		return null;
+	}
+
+	/**
+	 * <i>Trust me, I'm an Engineer!</i><br>
+	 * Returns a value of an annotation<br>
+	 * Generally safe to use, but slow. Cache the results.
+	 */
+	@Nullable
+	public static <T extends Annotation> T getAnnotation(Class<T> annotationClass, Object o)
+	{
+		if(o.getClass().isAnnotationPresent(annotationClass)) return o.getClass().getAnnotation(annotationClass);
 		return null;
 	}
 }

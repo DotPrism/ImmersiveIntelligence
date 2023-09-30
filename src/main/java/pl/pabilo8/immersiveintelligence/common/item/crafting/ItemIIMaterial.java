@@ -17,84 +17,84 @@ public class ItemIIMaterial extends ItemIISubItemsBase<Materials>
 
 	public enum Materials implements IIItemEnum
 	{
-		@IIItemProperties(oreDict = "electronTubeAdvanced")
+		@IIItemProperties(oreDict = "electronTubeAdvanced", category = IICategory.RESOURCE)
 		ADVANCED_ELECTRON_TUBE,
 
-		@IIItemProperties(oreDict = {"chipBasic", "oc:circuitChip1"})
+		@IIItemProperties(oreDict = {"chipBasic", "oc:circuitChip1"}, category = IICategory.RESOURCE)
 		BASIC_ELECTRONIC_ELEMENT,
-		@IIItemProperties(oreDict = {"circuitBasicRaw", "oc:materialCircuitBoardRaw"})
+		@IIItemProperties(oreDict = {"circuitBasicRaw", "oc:materialCircuitBoardRaw"}, category = IICategory.RESOURCE)
 		BASIC_CIRCUIT_BOARD_RAW,
-		@IIItemProperties(oreDict = {"circuitBasicEtched", "oc:materialCircuitBoardPrinted"})
+		@IIItemProperties(oreDict = {"circuitBasicEtched", "oc:materialCircuitBoardPrinted"}, category = IICategory.RESOURCE)
 		BASIC_CIRCUIT_BOARD_ETCHED,
 
-		@IIItemProperties(oreDict = {"chipAdvanced", "oc:circuitChip2"})
+		@IIItemProperties(oreDict = {"chipAdvanced", "oc:circuitChip2"}, category = IICategory.RESOURCE)
 		ADVANCED_ELECTRONIC_ELEMENT,
-		@IIItemProperties(oreDict = {"circuitAdvancedRaw", "oc:materialCircuitBoardRaw"})
+		@IIItemProperties(oreDict = {"circuitAdvancedRaw", "oc:materialCircuitBoardRaw"}, category = IICategory.RESOURCE)
 		ADVANCED_CIRCUIT_BOARD_RAW,
-		@IIItemProperties(oreDict = {"circuitAdvancedEtched", "oc:materialCircuitBoardPrinted"})
+		@IIItemProperties(oreDict = {"circuitAdvancedEtched", "oc:materialCircuitBoardPrinted"}, category = IICategory.RESOURCE)
 		ADVANCED_CIRCUIT_BOARD_ETCHED,
-		@IIItemProperties(oreDict = "circuitAdvanced")
+		@IIItemProperties(oreDict = "circuitAdvanced", category = IICategory.RESOURCE)
 		ADVANCED_CIRCUIT_BOARD,
 
-		@IIItemProperties(oreDict = {"transistor", "oc:materialTransistor"})
+		@IIItemProperties(oreDict = {"transistor", "oc:materialTransistor"}, category = IICategory.RESOURCE)
 		TRANSISTOR,
-		@IIItemProperties(oreDict = {"chipProcessor", "chipElite", "oc:circuitChip3"})
+		@IIItemProperties(oreDict = {"chipProcessor", "chipElite", "oc:circuitChip3"}, category = IICategory.RESOURCE)
 		PROCESSOR_ELECTRONIC_ELEMENT,
-		@IIItemProperties(oreDict = {"circuitProcessorRaw", "circuitEliteRaw", "oc:materialCircuitBoardRaw"})
+		@IIItemProperties(oreDict = {"circuitProcessorRaw", "circuitEliteRaw", "oc:materialCircuitBoardRaw"}, category = IICategory.RESOURCE)
 		PROCESSOR_CIRCUIT_BOARD_RAW,
-		@IIItemProperties(oreDict = {"circuitProcessorEtched", "circuitEliteEtched", "oc:materialCircuitBoardPrinted"})
+		@IIItemProperties(oreDict = {"circuitProcessorEtched", "circuitEliteEtched", "oc:materialCircuitBoardPrinted"}, category = IICategory.RESOURCE)
 		PROCESSOR_CIRCUIT_BOARD_ETCHED,
-		@IIItemProperties(oreDict = {"circuitProcessor", "circuitElite"})
+		@IIItemProperties(oreDict = {"circuitProcessor", "circuitElite"}, category = IICategory.RESOURCE)
 		PROCESSOR_CIRCUIT_BOARD,
 
-		@IIItemProperties(oreDict = {"engineElectricSmall", "engineElectricCompact"})
+		@IIItemProperties(oreDict = {"engineElectricSmall", "engineElectricCompact"}, category = IICategory.RESOURCE)
 		COMPACT_ELECTRIC_ENGINE,
-		@IIItemProperties(oreDict = {"engineElectricSmallAdvanced", "engineElectricCompactAdvanced"})
+		@IIItemProperties(oreDict = {"engineElectricSmallAdvanced", "engineElectricCompactAdvanced"}, category = IICategory.RESOURCE)
 		COMPACT_ELECTRIC_ENGINE_ADVANCED,
 
-		@IIItemProperties(oreDict = "punchtapeEmpty")
+		@IIItemProperties(oreDict = "punchtapeEmpty", category = IICategory.INTELLIGENCE)
 		PUNCHTAPE_EMPTY,
 
-		@IIItemProperties(oreDict = {"materialRDX", "materialHexogen"})
+		@IIItemProperties(oreDict = {"materialRDX", "materialHexogen"}, category = IICategory.RESOURCE)
 		DUST_RDX,
-		@IIItemProperties(oreDict = {"materialHMX", "materialOctogen"})
+		@IIItemProperties(oreDict = {"materialHMX", "materialOctogen"}, category = IICategory.RESOURCE)
 		DUST_HMX,
-		@IIItemProperties(oreDict = {"dustWhitePhosphorus", "whitePhosphorus"})
+		@IIItemProperties(oreDict = {"dustWhitePhosphorus", "whitePhosphorus"}, category = IICategory.RESOURCE)
 		WHITE_PHOSPHORUS,
-		@IIItemProperties(oreDict = "dustSalt")
+		@IIItemProperties(oreDict = "dustSalt", category = IICategory.RESOURCE)
 		DUST_SALT,
 
-		@IIItemProperties(oreDict = "brushCarbon")
+		@IIItemProperties(oreDict = "brushCarbon", category = IICategory.RESOURCE)
 		CARBON_BRUSH,
-		@IIItemProperties(hidden = true)
+		@IIItemProperties(hidden = true, category = IICategory.RESOURCE)
 		GLASS_FIBRE_CABLE,
 
-		@IIItemProperties(oreDict = "dustWood")
+		@IIItemProperties(oreDict = "dustWood", category = IICategory.RESOURCE)
 		DUST_WOOD,
-		@IIItemProperties(oreDict = "dustFormaldehyde")
+		@IIItemProperties(oreDict = "dustFormaldehyde", category = IICategory.RESOURCE)
 		DUST_FORMALDEHYDE,
-		@IIItemProperties(oreDict = "dustHexamine")
+		@IIItemProperties(oreDict = "dustHexamine", category = IICategory.RESOURCE)
 		DUST_HEXAMINE,
-		@IIItemProperties(oreDict = "pulpWood")
+		@IIItemProperties(oreDict = "pulpWood", category = IICategory.RESOURCE)
 		PULP_WOOD,
-		@IIItemProperties(oreDict = "pulpWoodTreated")
+		@IIItemProperties(oreDict = "pulpWoodTreated", category = IICategory.RESOURCE)
 		PULP_WOOD_TREATED,
-		@IIItemProperties(oreDict = {"leather", "leatherArtificial"})
+		@IIItemProperties(oreDict = {"leather", "leatherArtificial"}, category = IICategory.RESOURCE)
 		ARTIFICIAL_LEATHER,
 
-		@IIItemProperties(oreDict = "rubberRaw")
+		@IIItemProperties(oreDict = "rubberRaw", category = IICategory.RESOURCE)
 		NATURAL_RUBBER,
-		@IIItemProperties(oreDict = {"itemRubber", "materialRubber"})
+		@IIItemProperties(oreDict = {"itemRubber", "materialRubber"}, category = IICategory.RESOURCE)
 		RUBBER_BELT,
-		@IIItemProperties(oreDict = "tireRubber")
+		@IIItemProperties(oreDict = "tireRubber", category = IICategory.RESOURCE)
 		RUBBER_TIRE,
-		@IIItemProperties(oreDict = "dustVulcanizationCompound")
+		@IIItemProperties(oreDict = "dustVulcanizationCompound", category = IICategory.RESOURCE)
 		RUBBER_COMPOUND,
 
-		@IIItemProperties(oreDict = "templateCircuit", hidden = true)
+		@IIItemProperties(oreDict = "templateCircuit", hidden = true, category = IICategory.RESOURCE)
 		CIRCUIT_TEMPLATE,
 
-		@IIItemProperties(oreDict = "circuitCryptographic")
+		@IIItemProperties(oreDict = "circuitCryptographic", category = IICategory.RESOURCE)
 		CRYPTOGRAPHIC_CIRCUIT_BOARD,
 	}
 }

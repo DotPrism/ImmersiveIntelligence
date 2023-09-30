@@ -19,6 +19,7 @@ public class ItemIIMaterialBoule extends ItemIISubItemsBase<MaterialsBoule>
 
 	public enum MaterialsBoule implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.RESOURCE)
 		SILICON
 	}
 }

@@ -21,6 +21,7 @@ import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.Enum
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IITileProviderEnum;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 /**
  * @author Pabilo8
@@ -31,7 +32,7 @@ public class BlockIIMetalDevice1 extends BlockIITileProvider<IIBlockTypes_MetalD
 	public enum IIBlockTypes_MetalDevice1 implements IITileProviderEnum
 	{
 		@EnumTileProvider(tile = TileEntityCO2Filter.class)
-		@IIBlockProperties(needsCustomState = true, renderLayer = BlockRenderLayer.CUTOUT)
+		@IIBlockProperties(needsCustomState = true, renderLayer = BlockRenderLayer.CUTOUT, category = IICategory.ELECTRONICS)
 		CO2_FILTER
 	}
 

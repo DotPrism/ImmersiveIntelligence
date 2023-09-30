@@ -19,16 +19,27 @@ public class ItemIIMaterialDust extends ItemIISubItemsBase<MaterialsDust>
 
 	public enum MaterialsDust implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.RESOURCE)
 		ADVANCED_ELECTRONIC_ALLOY,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		BRASS,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		PLATINUM,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		TUNGSTEN,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		ZINC,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		SILICON,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		FLUORITE,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		QUARTZ,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		QUARTZ_DIRTY,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		PHOSPHORUS,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		DURALUMINIUM
 	}
 }

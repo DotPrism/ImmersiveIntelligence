@@ -47,7 +47,9 @@ public class ItemIIRadioTuner extends ItemIISubItemsBase<RadioTuners> implements
 
 	public enum RadioTuners implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		BASIC(IIConfig.radioBasicMaxFrequency),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		ADVANCED(IIConfig.radioAdvancedMaxFrequency);
 
 		final int maxFrequency;

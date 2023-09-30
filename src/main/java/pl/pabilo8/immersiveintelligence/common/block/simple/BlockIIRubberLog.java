@@ -3,7 +3,6 @@ package pl.pabilo8.immersiveintelligence.common.block.simple;
 import blusunrize.immersiveengineering.common.util.Utils;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockLog.EnumAxis;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
@@ -26,6 +25,7 @@ import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBl
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.TernaryValue;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 import javax.annotation.Nullable;
 
@@ -46,10 +46,11 @@ public class BlockIIRubberLog extends BlockIIBase<RubberLogs>
 
 	public enum RubberLogs implements IIBlockEnum
 	{
+		@IIBlockProperties(category = IICategory.RESOURCE)
 		RAW,
-		@IIBlockProperties(hidden = TernaryValue.TRUE)
+		@IIBlockProperties(hidden = TernaryValue.TRUE, category = IICategory.RESOURCE)
 		REBBUR, //Carver reference, it's truly a great name xD
-		@IIBlockProperties(hidden = TernaryValue.TRUE, fullCube = TernaryValue.FALSE)
+		@IIBlockProperties(hidden = TernaryValue.TRUE, fullCube = TernaryValue.FALSE, category = IICategory.RESOURCE)
 		STRIPPED;
 	}
 

@@ -14,10 +14,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockEnum;
-import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IITileProviderEnum;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 import javax.annotation.Nullable;
 
+@IIBlockProperties(category = IICategory.RESOURCE)
 public class BlockIISlab<E extends Enum<E> & IIBlockEnum> extends BlockIIBase<E>
 {
 	public static final PropertyInteger prop_SlabType = PropertyInteger.create("slabtype", 0, 2);

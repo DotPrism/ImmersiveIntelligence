@@ -19,13 +19,21 @@ public class ItemIIMaterialPlate extends ItemIISubItemsBase<MaterialsPlate>
 
 	public enum MaterialsPlate implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.RESOURCE)
 		ADVANCED_ELECTRONIC_ALLOY,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		BRASS,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		PLATINUM,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		TUNGSTEN,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		ZINC,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		SILICON,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		RUBBER_RAW,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		DURALUMINIUM
 	}
 }

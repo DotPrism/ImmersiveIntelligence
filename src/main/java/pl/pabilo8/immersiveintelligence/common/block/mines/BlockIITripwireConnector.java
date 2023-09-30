@@ -8,8 +8,10 @@ import pl.pabilo8.immersiveintelligence.common.block.mines.BlockIITripwireConnec
 import pl.pabilo8.immersiveintelligence.common.block.mines.tileentity.TileEntityTripwireConnector;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIITileProvider;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.EnumTileProvider;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IITileProviderEnum;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 /**
  * @author Pabilo8
@@ -20,6 +22,7 @@ public class BlockIITripwireConnector extends BlockIITileProvider<IIBlockTypes_D
 	public enum IIBlockTypes_Dummy implements IITileProviderEnum
 	{
 		@EnumTileProvider(tile = TileEntityTripwireConnector.class)
+		@IIBlockProperties(category = IICategory.WARFARE)
 		MAIN
 	}
 

@@ -23,6 +23,7 @@ import pl.pabilo8.immersiveintelligence.common.network.messages.MessageRotaryPow
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import static pl.pabilo8.immersiveintelligence.api.rotary.CapabilityRotaryEnergy.ROTARY_ENERGY;
 import static pl.pabilo8.immersiveintelligence.Config.IIConfig.MechanicalDevices.rofConversionRatio;
 
 /**
@@ -58,7 +59,7 @@ public class TileEntityTransmissionBox extends TileEntityIEBase implements ITick
 	@Override
 	public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing)
 	{
-		if(capability==CapabilityRotaryEnergy.ROTARY_ENERGY&&(facing==null||facing==getFacing().getOpposite()))
+		if(capability==ROTARY_ENERGY&&(facing==null||facing==getFacing().getOpposite()))
 			return true;
 		return super.hasCapability(capability, facing);
 	}
@@ -66,7 +67,7 @@ public class TileEntityTransmissionBox extends TileEntityIEBase implements ITick
 	@Override
 	public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing)
 	{
-		if(capability==CapabilityRotaryEnergy.ROTARY_ENERGY)
+		if(capability==ROTARY_ENERGY)
 		{
 			if(facing==null||facing==getFacing().getOpposite())
 				return (T)energy;

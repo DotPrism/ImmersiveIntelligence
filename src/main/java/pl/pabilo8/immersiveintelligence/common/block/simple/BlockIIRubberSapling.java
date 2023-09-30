@@ -21,7 +21,9 @@ import net.minecraftforge.common.IPlantable;
 import pl.pabilo8.immersiveintelligence.common.IIContent;
 import pl.pabilo8.immersiveintelligence.common.block.simple.BlockIIRubberLeaves.RubberStuff;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 import pl.pabilo8.immersiveintelligence.common.world.IIWorldGen;
 
 import javax.annotation.Nullable;
@@ -31,6 +33,7 @@ import java.util.Random;
  * @author Pabilo8
  * @since 2019-05-17
  */
+@IIBlockProperties(category = IICategory.RESOURCE)
 public class BlockIIRubberSapling extends BlockIIBase<RubberStuff> implements IGrowable, IPlantable
 {
 	private static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);

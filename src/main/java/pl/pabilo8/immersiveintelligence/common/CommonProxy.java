@@ -134,10 +134,10 @@ import pl.pabilo8.immersiveintelligence.common.util.block.BlockIIBase;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIIFluid;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockEnum;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
-import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum;
-import pl.pabilo8.immersiveintelligence.common.util.item.ItemIIBase;
-import pl.pabilo8.immersiveintelligence.common.util.item.ItemIISubItemsBase;
-import pl.pabilo8.immersiveintelligence.common.util.item.ItemIIUpgradeableArmor;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.TernaryValue;
+import pl.pabilo8.immersiveintelligence.common.util.item.*;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
 import pl.pabilo8.immersiveintelligence.common.util.multiblock.MultiblockStuctureBase;
 import pl.pabilo8.immersiveintelligence.common.wire.IIDataWireType;
 import pl.pabilo8.immersiveintelligence.common.world.IIWorldGen;
@@ -283,6 +283,7 @@ public class CommonProxy implements IGuiHandler, LoadingCallback
 		//IE Circuit Board
 		OreDictionary.registerOre("circuitBasic", new ItemStack(IEContent.itemMaterial, 1, 27));
 
+
 		//Catch them all!
 		for(Item item : IIContent.ITEMS)
 			if(item instanceof ItemIISubItemsBase<?>)
@@ -305,6 +306,8 @@ public class CommonProxy implements IGuiHandler, LoadingCallback
 					//chad subtype dependent OreDict
 					for(String ore : subItem.getOreDict())
 						OreDictionary.registerOre(ore, new ItemStack(item, 1, meta));
+
+					IIContent.CATEGORY_ITEM_MAP.add(new IIItemStack(new ItemStack(item, 1, meta), subItem.getCategory()));
 				}
 			}
 			else if(item instanceof ItemIIBase)
@@ -313,6 +316,9 @@ public class CommonProxy implements IGuiHandler, LoadingCallback
 				if(ores!=null)
 					for(String ore : ores)
 						OreDictionary.registerOre(IIUtils.toCamelCase(ore, true), new ItemStack(item));
+
+				IIItemProperties props = ((ItemIIBase)item).getItemProperties();
+				IIContent.CATEGORY_ITEM_MAP.add(new IIItemStack(new ItemStack(item), (props==null)?IICategory.ELECTRONICS: props.category()));
 			}
 
 		for(Block block : IIContent.BLOCKS)
@@ -330,8 +336,12 @@ public class CommonProxy implements IGuiHandler, LoadingCallback
 						for(String ore : ores)
 							OreDictionary.registerOre(IIUtils.toCamelCase(ore+"_"+enumValue.getName(), true), new ItemStack(block, 1, meta));
 
-					//subtype dependent OreDict
 					IIBlockProperties properties = enumValue.getProperties();
+					if (properties==null)IILogger.error("Cannot find IIBlockProperties for block: "+((BlockIIBase<?>)block).name);
+					// IF A BLOCK DOES NOT HAVE IIBlockProperties ANNOTATION THEN IT WILL NOT BE DISPLAYED IN CREATIVE MENU!!!
+					if (properties!=null&&properties.hidden()!=TernaryValue.TRUE)
+						IIContent.CATEGORY_ITEM_MAP.add(new IIItemStack(new ItemStack(block, 1, meta), properties.category()));
+					//subtype dependent OreDict
 					if(properties!=null)
 						for(String ore : properties.oreDict())
 							OreDictionary.registerOre(ore, new ItemStack(block, 1, meta));
@@ -367,7 +377,9 @@ public class CommonProxy implements IGuiHandler, LoadingCallback
 							OreDictionary.registerOre(IIUtils.toCamelCase(ore, true), new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
 					}
 
-				} catch(IllegalAccessException ignored) {}
+				} catch(IllegalAccessException ignored)
+				{
+				}
 			}
 		}
 

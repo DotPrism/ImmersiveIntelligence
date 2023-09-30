@@ -46,24 +46,32 @@ public class ItemIIMinecart extends ItemIISubItemsBase<Minecarts>
 
 	public enum Minecarts implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.LOGISTICS)
 		WOODEN_CRATE(EntityMinecartCrateWooden::new,
 				() -> new ItemStack(IEContent.blockWoodenDevice0, 1, BlockTypes_WoodenDevice0.CRATE.getMeta())),
+		@IIItemProperties(category = IICategory.LOGISTICS)
 		REINFORCED_CRATE(EntityMinecartCrateReinforced::new,
 				() -> new ItemStack(IEContent.blockWoodenDevice0, 1, BlockTypes_WoodenDevice0.REINFORCED_CRATE.getMeta())),
+		@IIItemProperties(category = IICategory.LOGISTICS)
 		STEEL_CRATE(EntityMinecartCrateSteel::new,
 				() -> new ItemStack(IIContent.blockMetalDevice, 1, IIBlockTypes_MetalDevice.METAL_CRATE.getMeta())),
-
+		@IIItemProperties(category = IICategory.LOGISTICS)
 		WOODEN_BARREL(EntityMinecartBarrelWooden::new,
 				() -> new ItemStack(IEContent.blockWoodenDevice0, 1, BlockTypes_WoodenDevice0.BARREL.getMeta())),
+		@IIItemProperties(category = IICategory.LOGISTICS)
 		METAL_BARREL(EntityMinecartBarrelSteel::new,
 				() -> new ItemStack(IEContent.blockMetalDevice0, 1, BlockTypes_MetalDevice0.BARREL.getMeta())),
 
+		@IIItemProperties(category = IICategory.LOGISTICS)
 		CAPACITOR_LV(EntityMinecartCapacitorLV::new,
 				() -> new ItemStack(IEContent.blockMetalDevice0, 1, BlockTypes_MetalDevice0.CAPACITOR_LV.getMeta())),
+		@IIItemProperties(category = IICategory.LOGISTICS)
 		CAPACITOR_MV(EntityMinecartCapacitorMV::new,
 				() -> new ItemStack(IEContent.blockMetalDevice0, 1, BlockTypes_MetalDevice0.CAPACITOR_MV.getMeta())),
+		@IIItemProperties(category = IICategory.LOGISTICS)
 		CAPACITOR_HV(EntityMinecartCapacitorHV::new,
 				() -> new ItemStack(IEContent.blockMetalDevice0, 1, BlockTypes_MetalDevice0.CAPACITOR_HV.getMeta())),
+		@IIItemProperties(category = IICategory.LOGISTICS)
 		CAPACITOR_CREATIVE(EntityMinecartCapacitorCreative::new,
 				() -> new ItemStack(IEContent.blockMetalDevice0, 1, BlockTypes_MetalDevice0.CAPACITOR_CREATIVE.getMeta()));
 

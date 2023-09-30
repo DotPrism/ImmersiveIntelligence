@@ -26,6 +26,11 @@ public abstract class ItemIIUpgradableTool extends ItemUpgradeableTool
 		return getUpgrades(stack).hasKey(upgrade.getName());
 	}
 
+	public ItemStack getStack(int amount)
+	{
+		return new ItemStack(this, amount);
+	}
+
 	/**
 	 *
 	 * @param stack stack to check

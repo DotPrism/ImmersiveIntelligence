@@ -10,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import pl.pabilo8.immersiveintelligence.common.CommonProxy;
 import pl.pabilo8.immersiveintelligence.common.IIGuiList;
@@ -37,13 +36,13 @@ public class ItemIIPrintedPage extends ItemIISubItemsBase<SubItems> implements I
 
 	public enum SubItems implements IIItemEnum
 	{
-		@IIItemProperties(oreDict = "pageEmpty")
+		@IIItemProperties(oreDict = "pageEmpty", category = IICategory.INTELLIGENCE)
 		BLANK(IIGuiList.GUI_PRINTED_PAGE_BLANK),
-		@IIItemProperties(oreDict = {"pageText","pageWritten"})
+		@IIItemProperties(oreDict = {"pageText","pageWritten"}, category = IICategory.INTELLIGENCE)
 		TEXT(IIGuiList.GUI_PRINTED_PAGE_TEXT),
-		@IIItemProperties(oreDict = {"pageCode","pageWritten"})
+		@IIItemProperties(oreDict = {"pageCode","pageWritten"}, category = IICategory.INTELLIGENCE)
 		CODE(IIGuiList.GUI_PRINTED_PAGE_CODE),
-		@IIItemProperties(oreDict = {"pageBlueprint","pageWritten"})
+		@IIItemProperties(oreDict = {"pageBlueprint","pageWritten"}, category = IICategory.INTELLIGENCE)
 		BLUEPRINT(IIGuiList.GUI_PRINTED_PAGE_BLUEPRINT);
 
 		private final IIGuiList guiPage;

@@ -13,12 +13,15 @@ import net.minecraft.world.World;
 import pl.pabilo8.immersiveintelligence.common.IIUtils;
 import pl.pabilo8.immersiveintelligence.common.IISounds;
 import pl.pabilo8.immersiveintelligence.common.block.mines.BlockIIMine;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
 import pl.pabilo8.immersiveintelligence.common.util.item.ItemIIBase;
 
 /**
  * @author Pabilo8
  * @since 28.01.2021
  */
+@IIItemProperties(category = IICategory.WARFARE)
 public class ItemIIMineDetector extends ItemIIBase
 {
 	public ItemIIMineDetector()

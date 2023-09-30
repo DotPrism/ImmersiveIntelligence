@@ -3,12 +3,10 @@ package pl.pabilo8.immersiveintelligence.common.item.weapons;
 import blusunrize.immersiveengineering.client.models.IOBJModelCallback;
 import blusunrize.immersiveengineering.common.IEContent;
 import blusunrize.immersiveengineering.common.gui.IESlot;
-import blusunrize.immersiveengineering.common.util.IESounds;
 import blusunrize.immersiveengineering.common.util.ItemNBTHelper;
 import blusunrize.immersiveengineering.common.util.Utils;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -40,7 +38,6 @@ import pl.pabilo8.immersiveintelligence.client.ClientProxy;
 import pl.pabilo8.immersiveintelligence.client.IIClientUtils;
 import pl.pabilo8.immersiveintelligence.client.util.amt.IIUpgradableItemRendererAMT;
 import pl.pabilo8.immersiveintelligence.common.IIContent;
-import pl.pabilo8.immersiveintelligence.common.IISounds;
 import pl.pabilo8.immersiveintelligence.common.IIUtils;
 import pl.pabilo8.immersiveintelligence.common.entity.bullet.EntityBullet;
 import pl.pabilo8.immersiveintelligence.common.item.weapons.ammohandler.AmmoHandler;
@@ -57,6 +54,8 @@ import java.util.List;
 
 public abstract class ItemIIGunBase extends ItemIIUpgradableTool implements ISkinnable, IOBJModelCallback<ItemStack>
 {
+	public static final NonNullList<ItemIIGunBase> WEAPONS = NonNullList.create();
+
 	//--- NBT Values Reference ---//
 	public static final String RELOADING = "reloading";
 	public static final String AIMING = "aiming";
@@ -73,6 +72,7 @@ public abstract class ItemIIGunBase extends ItemIIUpgradableTool implements ISki
 		super(name, 1, name.toUpperCase());
 		//Use interfaces pls Blu
 		fixupItem();
+		WEAPONS.add(this);
 	}
 
 	//--- Base ---//

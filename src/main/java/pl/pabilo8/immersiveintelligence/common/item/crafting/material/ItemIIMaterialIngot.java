@@ -19,13 +19,21 @@ public class ItemIIMaterialIngot extends ItemIISubItemsBase<MaterialsIngot>
 
 	public enum MaterialsIngot implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.RESOURCE)
 		ADVANCED_ELECTRONIC_ALLOY,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		BRASS,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		PLATINUM,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		TUNGSTEN,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		ZINC,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		MAGNET,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		SILICON,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		DURALUMINIUM
 	}
 }

@@ -27,10 +27,7 @@ import pl.pabilo8.immersiveintelligence.api.data.DataPacket;
 import pl.pabilo8.immersiveintelligence.api.data.IDataConnector;
 import pl.pabilo8.immersiveintelligence.api.data.IDataDevice;
 import pl.pabilo8.immersiveintelligence.api.utils.IBooleanAnimatedPartsBlock;
-import pl.pabilo8.immersiveintelligence.common.IIContent;
-import pl.pabilo8.immersiveintelligence.common.IIGuiList;
-import pl.pabilo8.immersiveintelligence.common.IISounds;
-import pl.pabilo8.immersiveintelligence.common.IIUtils;
+import pl.pabilo8.immersiveintelligence.common.*;
 import pl.pabilo8.immersiveintelligence.common.block.mines.BlockIIRadioExplosives.ItemBlockRadioExplosives;
 import pl.pabilo8.immersiveintelligence.common.block.multiblock.metal_multiblock0.multiblock.MultiblockDataInputMachine;
 import pl.pabilo8.immersiveintelligence.common.item.ItemIIPunchtape;
@@ -184,6 +181,11 @@ public class TileEntityDataInputMachine extends TileEntityMultiblockMetal<TileEn
 						if(inventoryHandler.insertItem(1, written, true).isEmpty())
 						{
 							inventoryHandler.extractItem(0, 1, false);
+							if (written.getItem() instanceof ItemIIPunchtape)
+							{
+								DataPacket data = ((ItemIIPunchtape)written.getItem()).getStoredData(written);
+								IILogger.info("Data: "+data);
+							}
 							inventoryHandler.insertItem(1, written, false);
 
 							IIPacketHandler.sendToClient(this, new MessageIITileSync(this, EasyNBT.newNBT()

@@ -48,12 +48,16 @@ public class ItemIIDrillHead extends ItemIISubItemsBase<DrillHeads> implements I
 
 	public enum DrillHeads implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.RESOURCE)
 		TUNGSTEN("ingotTungsten", 5, 1, 4, 11, 10, 14000,
 				ImmersiveIntelligence.MODID+":items/drillhead/display/tungsten"),
+		@IIItemProperties(category = IICategory.RESOURCE)
 		IRON_DIAMOND_TIP("ingotIron", 2, 1, 3, 9, 8, 8000,
 				ImmersiveIntelligence.MODID+":items/drillhead/display/iron_tip"),
+		@IIItemProperties(category = IICategory.RESOURCE)
 		STEEL_DIAMOND_TIP("ingotSteel", 3, 1, 4, 10, 9, 12000,
 				ImmersiveIntelligence.MODID+":items/drillhead/display/steel_tip"),
+		@IIItemProperties(category = IICategory.RESOURCE)
 		TUNGSTEN_DIAMOND_TIP("ingotTungsten", 5, 1, 5, 11, 12, 18000,
 				ImmersiveIntelligence.MODID+":items/drillhead/display/tungsten_tip");
 

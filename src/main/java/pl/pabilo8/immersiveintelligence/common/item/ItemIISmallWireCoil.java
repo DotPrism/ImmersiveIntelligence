@@ -38,7 +38,9 @@ public class ItemIISmallWireCoil extends ItemIISubItemsBase<SmallWires> implemen
 
 	public enum SmallWires implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		REDSTONE(Wires.smallRedstoneWireColouration, Wires.smallRedstoneWireLength),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		DATA(Wires.smallDataWireColouration, Wires.smallDataWireLength);
 
 		public final int colour;

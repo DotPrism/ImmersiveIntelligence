@@ -7,6 +7,7 @@ import pl.pabilo8.immersiveintelligence.common.util.block.BlockIIBase;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockEnum;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 /**
  * @author Pabilo8
@@ -26,15 +27,15 @@ public class BlockIIMetalBase extends BlockIIBase<Metals>
 	public enum Metals implements IIBlockEnum
 	{
 		// TODO: 05.09.2022 values
-		@IIBlockProperties(hardness = 5, blastResistance = 10)
+		@IIBlockProperties(hardness = 5, blastResistance = 10, category = IICategory.RESOURCE)
 		PLATINUM,
-		@IIBlockProperties(hardness = 4, blastResistance = 10)
+		@IIBlockProperties(hardness = 4, blastResistance = 10, category = IICategory.RESOURCE)
 		ZINC,
-		@IIBlockProperties(hardness = 10, blastResistance = 10)
+		@IIBlockProperties(hardness = 10, blastResistance = 10, category = IICategory.RESOURCE)
 		TUNGSTEN,
-		@IIBlockProperties(hardness = 5, blastResistance = 10)
+		@IIBlockProperties(hardness = 5, blastResistance = 10, category = IICategory.RESOURCE)
 		BRASS,
-		@IIBlockProperties(hardness = 6, blastResistance = 10)
+		@IIBlockProperties(hardness = 6, blastResistance = 10, category = IICategory.RESOURCE)
 		DURALUMINIUM
 	}
 }

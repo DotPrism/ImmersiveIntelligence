@@ -20,6 +20,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import pl.pabilo8.immersiveintelligence.ImmersiveIntelligence;
 import pl.pabilo8.immersiveintelligence.common.IIContent;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -28,6 +30,7 @@ import java.util.List;
  * @author Pabilo8
  * @since 28.04.2021
  */
+@IIBlockProperties(category = IICategory.RESOURCE)
 public class BlockIIStairs extends BlockStairs
 {
 	public boolean hasFlavour = false;

@@ -27,7 +27,9 @@ import pl.pabilo8.immersiveintelligence.common.IIContent;
 import pl.pabilo8.immersiveintelligence.common.block.simple.BlockIIRubberLeaves.RubberStuff;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIIBase;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockEnum;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -45,6 +47,7 @@ public class BlockIIRubberLeaves extends BlockIIBase<RubberStuff> implements ISh
 
 	public enum RubberStuff implements IIBlockEnum
 	{
+		@IIBlockProperties(category = IICategory.RESOURCE)
 		RUBBER
 	}
 

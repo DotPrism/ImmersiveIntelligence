@@ -19,8 +19,11 @@ public class ItemIIMaterialSpring extends ItemIISubItemsBase<MaterialsSpring>
 
 	public enum MaterialsSpring implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.RESOURCE)
 		BRASS,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		IRON,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		STEEL
 	}
 }

@@ -23,6 +23,8 @@ import pl.pabilo8.immersiveintelligence.client.model.bullet.ModelGrenade;
 import pl.pabilo8.immersiveintelligence.common.IISounds;
 import pl.pabilo8.immersiveintelligence.common.IIUtils;
 import pl.pabilo8.immersiveintelligence.common.entity.bullet.EntityBullet;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -32,6 +34,7 @@ import java.util.List;
  * @author Pabilo8
  * @since 30-08-2019
  */
+@IIItemProperties(category = IICategory.WARFARE)
 public class ItemIIAmmoGrenade extends ItemIIAmmoBase
 {
 	public ItemIIAmmoGrenade()

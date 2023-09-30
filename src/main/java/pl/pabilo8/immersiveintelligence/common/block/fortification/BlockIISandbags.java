@@ -18,8 +18,10 @@ import pl.pabilo8.immersiveintelligence.common.block.fortification.tileentity.Ti
 import pl.pabilo8.immersiveintelligence.common.util.IILib;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIITileProvider;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.EnumTileProvider;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IITileProviderEnum;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -51,6 +53,7 @@ public class BlockIISandbags extends BlockIITileProvider<IIBlockTypes_StoneDecor
 	public enum IIBlockTypes_StoneDecoration implements IITileProviderEnum
 	{
 		@EnumTileProvider(tile = TileEntitySandbags.class)
+		@IIBlockProperties(category = IICategory.WARFARE)
 		SANDBAGS
 	}
 

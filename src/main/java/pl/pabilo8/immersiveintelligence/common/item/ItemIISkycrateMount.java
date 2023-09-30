@@ -24,7 +24,9 @@ public class ItemIISkycrateMount extends ItemIISubItemsBase<SkycrateMounts> impl
 
 	public enum SkycrateMounts implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.LOGISTICS)
 		MECHANICAL(pl.pabilo8.immersiveintelligence.Config.IIConfig.Tools.SkycrateMounts.mechEnergy, pl.pabilo8.immersiveintelligence.Config.IIConfig.Tools.SkycrateMounts.mechSpeed, pl.pabilo8.immersiveintelligence.Config.IIConfig.Tools.SkycrateMounts.mechSpeed, false),
+		@IIItemProperties(category = IICategory.LOGISTICS)
 		ELECTRIC(0, pl.pabilo8.immersiveintelligence.Config.IIConfig.Tools.SkycrateMounts.electricEnergy, pl.pabilo8.immersiveintelligence.Config.IIConfig.Tools.SkycrateMounts.electricSpeed, true);
 
 		private final float mountEnergy, mountMaxEnergy, electricEnergy;

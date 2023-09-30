@@ -18,6 +18,7 @@ import pl.pabilo8.immersiveintelligence.common.block.multiblock.wooden_multibloc
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.EnumMultiblockProvider;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IITileMultiblockEnum;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.TernaryValue;
 import pl.pabilo8.immersiveintelligence.common.util.multiblock.BlockIIMultiblock;
 
 /**
@@ -40,13 +41,16 @@ public class BlockIIWoodenMultiblock extends BlockIIMultiblock<WoodenMultiblocks
 	public enum WoodenMultiblocks implements IITileMultiblockEnum
 	{
 		@EnumMultiblockProvider(tile = TileEntitySkyCratePost.class, multiblock = MultiblockSkyCratePost.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		SKYCRATE_POST,
 		@EnumMultiblockProvider(tile = TileEntitySkyCrateStation.class, multiblock = MultiblockSkyCrateStation.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		SKYCRATE_STATION,
 		@EnumMultiblockProvider(tile = TileEntitySawmill.class, multiblock = MultiblockSawmill.class)
-		@IIBlockProperties(needsCustomState = true, renderLayer = BlockRenderLayer.CUTOUT)
+		@IIBlockProperties(needsCustomState = true, renderLayer = BlockRenderLayer.CUTOUT, hidden = TernaryValue.TRUE)
 		SAWMILL,
 		@EnumMultiblockProvider(tile = TileEntitySkyCartStation.class, multiblock = MultiblockSkyCartStation.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		SKYCART_STATION
 	}
 }

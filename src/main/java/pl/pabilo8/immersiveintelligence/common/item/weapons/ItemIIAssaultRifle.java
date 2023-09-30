@@ -12,7 +12,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
@@ -37,6 +36,8 @@ import pl.pabilo8.immersiveintelligence.common.item.weapons.ammohandler.AmmoHand
 import pl.pabilo8.immersiveintelligence.common.util.AdvancedSounds.RangedSound;
 import pl.pabilo8.immersiveintelligence.common.util.IILib;
 import pl.pabilo8.immersiveintelligence.common.util.easynbt.EasyNBT;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -46,6 +47,7 @@ import java.util.List;
  * @author Pabilo8
  * @since 17-09-2022
  */
+@IIItemProperties(category = IICategory.WARFARE)
 public class ItemIIAssaultRifle extends ItemIIGunBase implements IItemScrollable, IAdvancedZoomTool, IIEEnergyItem
 {
 	//--- NBT Values Reference ---//
@@ -329,8 +331,13 @@ public class ItemIIAssaultRifle extends ItemIIGunBase implements IItemScrollable
 	@Override
 	public void removeFromWorkbench(EntityPlayer player, ItemStack stack)
 	{
-		NBTTagCompound upgrades = getUpgrades(stack);
-		// TODO: 09.08.2020 advancements
+		if(hasIIUpgrade(stack, WeaponUpgrades.ELECTRIC_FIRING_MOTOR)&&
+				(hasIIUpgrade(stack, WeaponUpgrades.SCOPE)||hasIIUpgrade(stack, WeaponUpgrades.INFRARED_SCOPE)))
+			IIUtils.unlockIIAdvancement(player, "main/weapon_of_war");
+		if (hasIIUpgrade(stack, WeaponUpgrades.RAILGUN_ASSISTED_CHAMBER)&&hasIIUpgrade(stack, WeaponUpgrades.RIFLE_GRENADE_LAUNCHER))
+			IIUtils.unlockIIAdvancement(player, "main/the_accelerator");
+		if (hasIIUpgrade(stack, WeaponUpgrades.STEREOSCOPIC_RANGEFINDER))
+			IIUtils.unlockIIAdvancement(player, "main/special_operations_initiative");
 	}
 
 	//--- IItemScrollable ---//

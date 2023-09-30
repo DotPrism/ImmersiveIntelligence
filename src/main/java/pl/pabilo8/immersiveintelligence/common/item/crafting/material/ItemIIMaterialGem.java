@@ -19,7 +19,9 @@ public class ItemIIMaterialGem extends ItemIISubItemsBase<MaterialsGem>
 
 	public enum MaterialsGem implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.RESOURCE)
 		FLUORITE,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		PHOSPHORUS
 	}
 }

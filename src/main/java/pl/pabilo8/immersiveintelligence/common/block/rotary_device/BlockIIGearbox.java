@@ -1,23 +1,18 @@
 package pl.pabilo8.immersiveintelligence.common.block.rotary_device;
 
 import blusunrize.immersiveengineering.api.IEProperties;
-import blusunrize.immersiveengineering.common.blocks.ItemBlockIEBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
+import pl.pabilo8.immersiveintelligence.common.block.rotary_device.BlockIIGearbox.IIBlockTypes_Gearbox;
 import pl.pabilo8.immersiveintelligence.common.block.rotary_device.tileentity.TileEntityGearbox;
 import pl.pabilo8.immersiveintelligence.common.util.IILib;
 import pl.pabilo8.immersiveintelligence.common.util.block.BlockIITileProvider;
-import pl.pabilo8.immersiveintelligence.common.block.rotary_device.BlockIIGearbox.IIBlockTypes_Gearbox;
-import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.EnumMultiblockProvider;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.EnumTileProvider;
-import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockEnum;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IITileProviderEnum;
 import pl.pabilo8.immersiveintelligence.common.util.block.ItemBlockIIBase;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
 
 /**
  * @author Pabilo8
@@ -28,6 +23,7 @@ public class BlockIIGearbox extends BlockIITileProvider<IIBlockTypes_Gearbox>
 	public enum IIBlockTypes_Gearbox implements IITileProviderEnum
 	{
 		@EnumTileProvider(tile = TileEntityGearbox.class)
+		@IIBlockProperties(category = IICategory.ELECTRONICS)
 		WOODEN_GEARBOX
 	}
 

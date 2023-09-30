@@ -1,5 +1,6 @@
 package pl.pabilo8.immersiveintelligence;
 
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -11,9 +12,13 @@ import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import pl.pabilo8.immersiveintelligence.api.data.radio.RadioNetwork;
-import pl.pabilo8.immersiveintelligence.common.*;
+import pl.pabilo8.immersiveintelligence.common.CommonProxy;
+import pl.pabilo8.immersiveintelligence.common.IILogger;
+import pl.pabilo8.immersiveintelligence.common.IISaveData;
+import pl.pabilo8.immersiveintelligence.common.IISounds;
 import pl.pabilo8.immersiveintelligence.common.commands.CommandII;
 import pl.pabilo8.immersiveintelligence.common.compat.IICompatModule;
+import pl.pabilo8.immersiveintelligence.common.event.IIItemCreatedEventHandler;
 import pl.pabilo8.immersiveintelligence.common.util.IISkinHandler;
 
 import static pl.pabilo8.immersiveintelligence.ImmersiveIntelligence.MODID;
@@ -27,6 +32,30 @@ public class ImmersiveIntelligence
 {
 	public static final String MODID = "immersiveintelligence";
 	public static final String VERSION = "@VERSION@";
+	public static boolean loicense = false;
+
+	public enum VersionType
+	{
+		RETAIL("RETAIL", TextFormatting.GOLD),
+		BETA("BETA", TextFormatting.AQUA),
+		DEV("DEVELOPMENT", TextFormatting.DARK_PURPLE);
+
+
+		final String name;
+		final TextFormatting formatting;
+		VersionType(String name, TextFormatting formatting)
+		{
+			this.name = name;
+			this.formatting = formatting;
+		}
+
+		@Override
+		public String toString()
+		{
+			return this.formatting+this.name+TextFormatting.RESET;
+		}
+	}
+	public static final VersionType VERSION_TYPE = VersionType.DEV;
 
 	@SidedProxy(clientSide = "pl.pabilo8.immersiveintelligence.client.ClientProxy", serverSide = "pl.pabilo8.immersiveintelligence.common.CommonProxy")
 	public static CommonProxy proxy;
@@ -53,6 +82,9 @@ public class ImmersiveIntelligence
 	public void init(FMLInitializationEvent event)
 	{
 		NetworkRegistry.INSTANCE.registerGuiHandler(INSTANCE, proxy);
+
+		IIItemCreatedEventHandler iiItemCreatedEventHandler = new IIItemCreatedEventHandler();
+		iiItemCreatedEventHandler.registerEventHandler();
 
 		proxy.init();
 
@@ -107,7 +139,6 @@ public class ImmersiveIntelligence
 	@Mod.EventHandler
 	public void wrongSignature(FMLFingerprintViolationEvent event)
 	{
-		boolean loicense = false;
 		for(String altCert : alternativeCerts)
 			if(event.getFingerprints().contains(altCert))
 			{

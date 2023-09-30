@@ -13,7 +13,6 @@ import pl.pabilo8.immersiveintelligence.client.util.ResLoc;
 import pl.pabilo8.immersiveintelligence.client.util.amt.IIAnimationLoader;
 import pl.pabilo8.immersiveintelligence.common.IILogger;
 
-import javax.annotation.Nonnull;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.*;
@@ -121,13 +120,24 @@ public class IISkinHandler
 		 */
 		public boolean doesApply(String skinnableName)
 		{
-			return !Arrays.asList(appliesTo).isEmpty()&&Arrays.asList(appliesTo).contains(skinnableName);
+			return !Arrays.asList(this.appliesTo).isEmpty()&&Arrays.asList(this.appliesTo).contains(skinnableName);
+		}
+
+		/**
+		 * Check if user is eligible for the skin
+		 * @param uuid UUID of the player
+		 * @return If player is eligible for the skin
+		 */
+		public boolean isEligible(String uuid)
+		{
+			return !Arrays.asList(this.uuid).isEmpty()&&Arrays.asList(this.uuid).contains(uuid.replaceFirst("(\\p{XDigit}{8})(\\p{XDigit}{4})(\\p{XDigit}{4})(\\p{XDigit}{4})(\\p{XDigit}+)", "$1-$2-$3-$4-$5"));
 		}
 
 		//Couldn't do it in the constructor, because it spitted an error
 		void parseAdditionals()
 		{
 			hasCape = mods.contains("cape");
+			mods.removeIf(s -> s.contains("cape"));
 
 			//lambdas are love, lambdas are life
 			Optional<String> optional = mods.stream().filter(s -> s.contains("text_color=")).findFirst();
@@ -191,12 +201,11 @@ public class IISkinHandler
 		@Override
 		public void run()
 		{
-			Gson gson = new Gson();
 			try
 			{
 				IILogger.info("Attempting to download II special skin list from GitHub");
 				//URL url = new URL("https://raw.githubusercontent.com/Pabilo8/ImmersiveIntelligence/master/contributor_skins.json");
-				URL url = new URL("https://raw.githubusercontent.com/VDeltaGabriel/ImmersiveIntelligenceDEV/master/contributor_skins.json"); // TESTING PURPOSES ONLY
+				URL url = new URL("https://raw.githubusercontent.com/Team-Immersive-Intelligence/ImmersiveIntelligence/gabrielv-dev-archangel/contributor_skins.json"); // TESTING PURPOSES ONLY
 				specialSkins.clear();
 				specialSkinsByUUID.clear();
 				JsonStreamParser parser = new JsonStreamParser(new InputStreamReader(url.openStream()));

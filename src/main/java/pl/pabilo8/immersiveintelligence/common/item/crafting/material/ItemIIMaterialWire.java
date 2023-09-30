@@ -19,7 +19,9 @@ public class ItemIIMaterialWire extends ItemIISubItemsBase<MaterialsWire>
 
 	public enum MaterialsWire implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.RESOURCE)
 		TUNGSTEN,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		BRASS
 	}
 }

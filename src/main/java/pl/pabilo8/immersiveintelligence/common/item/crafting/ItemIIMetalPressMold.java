@@ -17,15 +17,25 @@ public class ItemIIMetalPressMold extends ItemIISubItemsBase<PressMolds>
 
 	public enum PressMolds implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.RESOURCE)
 		HOWITZER,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		LIGHT_HOWITZER,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		MORTAR,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		AUTOCANNON,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		MACHINEGUN,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		ASSAULT_RIFLE,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		SUBMACHINEGUN,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		NAVAL_MINE,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		TRIPMINE,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		TELLERMINE
 	}
 }

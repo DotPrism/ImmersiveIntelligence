@@ -70,21 +70,29 @@ public class ItemIIWeaponUpgrade extends ItemIISubItemsBase<WeaponUpgrades> impl
 		//--- Machinegun ---//
 
 		//Increases fire rate
+		@IIItemProperties(category = IICategory.WARFARE)
 		HEAVY_BARREL(WeaponTypes.MACHINEGUN, "water_cooling"),
 		//Uses water to speed up gun cooling
+		@IIItemProperties(category = IICategory.WARFARE)
 		WATER_COOLING(WeaponTypes.MACHINEGUN, "heavy_barrel"),
 		//Allows to load ammo from ammo crate below the player
+		@IIItemProperties(category = IICategory.WARFARE)
 		BELT_FED_LOADER(WeaponTypes.MACHINEGUN, "second_magazine"),
 		//Adds a second magazine, increases reload time a little bit
+		@IIItemProperties(category = IICategory.WARFARE)
 		SECOND_MAGAZINE(WeaponTypes.MACHINEGUN, "belt_fed_loader"),
 
 		//Speeds up mg setting up time, but increases recoil
+		@IIItemProperties(category = IICategory.WARFARE)
 		HASTY_BIPOD(WeaponTypes.MACHINEGUN, "precise_bipod", "tripod"),
 		//Slows down mg setting up time, but decreases recoil
+		@IIItemProperties(category = IICategory.WARFARE)
 		PRECISE_BIPOD(WeaponTypes.MACHINEGUN, "hasty_bipod", "tripod"),
 		//3 x Magnification
+		@IIItemProperties(category = IICategory.WARFARE)
 		SCOPE(new WeaponTypes[]{WeaponTypes.MACHINEGUN, WeaponTypes.AUTOREVOLVER, WeaponTypes.ASSAULT_RIFLE, WeaponTypes.RIFLE}, "infrared_scope"),
 		//Allows nightvision + 2 x magnification, uses energy from player's backpack
+		@IIItemProperties(category = IICategory.WARFARE)
 		INFRARED_SCOPE(new WeaponTypes[]{WeaponTypes.MACHINEGUN, WeaponTypes.ASSAULT_RIFLE},
 				(stack, nbt) -> {
 					//Assault Rifle
@@ -93,41 +101,52 @@ public class ItemIIWeaponUpgrade extends ItemIISubItemsBase<WeaponUpgrades> impl
 				},
 				"scope"),
 		//Deflects projectiles
+		@IIItemProperties(category = IICategory.WARFARE)
 		SHIELD(WeaponTypes.MACHINEGUN),
 		//Slows down mg setting up time, almost eliminates recoil, increases yaw and pitch angles
+		@IIItemProperties(category = IICategory.WARFARE)
 		TRIPOD(WeaponTypes.MACHINEGUN, "hasty_bipod", "precise_bipod"),
 
 		//--- Submachinegun ---//
 
 		//Adds a velocity, penetration and suppression boost, lowers the firerate
+		@IIItemProperties(category = IICategory.WARFARE)
 		STURDY_BARREL(WeaponTypes.SUBMACHINEGUN),
 		//Makes gunshots (almost) silent
+		@IIItemProperties(category = IICategory.WARFARE)
 		SUPPRESSOR(WeaponTypes.SUBMACHINEGUN),
 		//Allows using drum magazines
+		@IIItemProperties(category = IICategory.WARFARE)
 		BOTTOM_LOADING(WeaponTypes.SUBMACHINEGUN),
 		//Reduces aiming time
+		@IIItemProperties(category = IICategory.WARFARE)
 		FOLDING_STOCK(WeaponTypes.SUBMACHINEGUN),
 
 		//--- Assault Rifle ---//
 
 		//Allows shooting railgun grenades at a lower range, requires energy
+		@IIItemProperties(category = IICategory.WARFARE)
 		RIFLE_GRENADE_LAUNCHER(WeaponTypes.ASSAULT_RIFLE,
 				(stack, nbt) -> nbt.setBoolean("energy", true),
 				"stereoscopic_rangefinder"),
 		//Displays range to point where the gun is aimed at, requires energy
+		@IIItemProperties(category = IICategory.WARFARE)
 		STEREOSCOPIC_RANGEFINDER(WeaponTypes.ASSAULT_RIFLE,
 				(stack, nbt) -> nbt.setBoolean("energy", true),
 				"rifle_grenade_launcher"),
 
 		//Decreases recoil, requires energy
+		@IIItemProperties(category = IICategory.WARFARE)
 		GYROSCOPIC_STABILIZER(WeaponTypes.ASSAULT_RIFLE,
 				(stack, nbt) -> nbt.setBoolean("energy", true),
 				"electric_firing_motor", "railgun_assisted_chamber"),
 		//Increases firing rate for auto mode, requires energy
+		@IIItemProperties(category = IICategory.WARFARE)
 		ELECTRIC_FIRING_MOTOR(WeaponTypes.ASSAULT_RIFLE,
 				(stack, nbt) -> nbt.setBoolean("energy", true),
 				"gyroscopic_stabilizer", "railgun_assisted_chamber"),
 		//Increases velocity of bullets in manual mode, requires energy
+		@IIItemProperties(category = IICategory.WARFARE)
 		RAILGUN_ASSISTED_CHAMBER(WeaponTypes.ASSAULT_RIFLE,
 				(stack, nbt) -> nbt.setBoolean("energy", true),
 				"gyroscopic_stabilizer", "electric_firing_motor"),
@@ -138,8 +157,9 @@ public class ItemIIWeaponUpgrade extends ItemIISubItemsBase<WeaponUpgrades> impl
 //		HEAVY_SPRINGBOX(WeaponTypes.AUTOREVOLVER),
 
 		//--- Rifle ---//
-
+		@IIItemProperties(category = IICategory.WARFARE)
 		SEMI_AUTOMATIC(WeaponTypes.RIFLE, "extended_barrel"),
+		@IIItemProperties(category = IICategory.WARFARE)
 		EXTENDED_BARREL(WeaponTypes.RIFLE, "semi_automatic");
 
 		public final ImmutableSet<WeaponTypes> toolset;

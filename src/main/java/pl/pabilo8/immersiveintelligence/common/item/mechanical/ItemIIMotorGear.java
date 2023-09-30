@@ -55,10 +55,15 @@ public class ItemIIMotorGear extends ItemIISubItemsBase<MotorGear> implements IM
 
 	public enum MotorGear implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.RESOURCE)
 		COPPER(MechanicalDevices.gearTorqueModifier[0]),
+		@IIItemProperties(category = IICategory.RESOURCE)
 		BRASS(MechanicalDevices.gearTorqueModifier[1]),
+		@IIItemProperties(category = IICategory.RESOURCE)
 		IRON(MechanicalDevices.gearTorqueModifier[2]),
+		@IIItemProperties(category = IICategory.RESOURCE)
 		STEEL(MechanicalDevices.gearTorqueModifier[3]),
+		@IIItemProperties(category = IICategory.RESOURCE)
 		TUNGSTEN(MechanicalDevices.gearTorqueModifier[4]);
 
 		final float torqueMod;

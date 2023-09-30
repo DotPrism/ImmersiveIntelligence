@@ -25,6 +25,7 @@ import net.minecraft.world.biome.Biome;
 import org.lwjgl.opengl.GL11;
 import pl.pabilo8.immersiveintelligence.client.manual.IIManualObject;
 import pl.pabilo8.immersiveintelligence.client.manual.IIManualPage;
+import pl.pabilo8.immersiveintelligence.common.IILogger;
 import pl.pabilo8.immersiveintelligence.common.IIUtils;
 import pl.pabilo8.immersiveintelligence.common.util.easynbt.EasyNBT;
 
@@ -280,6 +281,8 @@ public class IIManualMultiblock extends IIManualObject
 	{
 		if(super.mousePressed(mc, mouseX, mouseY))
 		{
+			if (buttonUp==null) IILogger.error("buttonUp is NULL!");
+
 			if(buttonStop.mousePressed(mc, mouseX, mouseY))
 				showCompleted = !showCompleted;
 			else if(buttonPause.mousePressed(mc, mouseX, mouseY))

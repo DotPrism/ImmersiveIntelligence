@@ -3,7 +3,6 @@ package pl.pabilo8.immersiveintelligence.common.item.weapons;
 import blusunrize.immersiveengineering.common.IEContent;
 import blusunrize.immersiveengineering.common.gui.IESlot;
 import blusunrize.immersiveengineering.common.items.IEItemInterfaces.IAdvancedFluidItem;
-import blusunrize.immersiveengineering.common.items.ItemUpgradeableTool;
 import blusunrize.immersiveengineering.common.util.IEItemFluidHandler;
 import blusunrize.immersiveengineering.common.util.ItemNBTHelper;
 import blusunrize.immersiveengineering.common.util.inventory.IEItemStackHandler;
@@ -37,14 +36,17 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import org.lwjgl.input.Keyboard;
 import pl.pabilo8.immersiveintelligence.Config.IIConfig.Weapons.Machinegun;
-import pl.pabilo8.immersiveintelligence.client.IIClientUtils;
 import pl.pabilo8.immersiveintelligence.ImmersiveIntelligence;
 import pl.pabilo8.immersiveintelligence.api.ISkinnable;
 import pl.pabilo8.immersiveintelligence.api.MachinegunCoolantHandler;
-import pl.pabilo8.immersiveintelligence.common.IIUtils;
+import pl.pabilo8.immersiveintelligence.client.IIClientUtils;
 import pl.pabilo8.immersiveintelligence.common.IIContent;
+import pl.pabilo8.immersiveintelligence.common.IIUtils;
 import pl.pabilo8.immersiveintelligence.common.entity.EntityMachinegun;
 import pl.pabilo8.immersiveintelligence.common.util.IILib;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
+import pl.pabilo8.immersiveintelligence.common.util.item.ItemIIUpgradableTool;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -53,7 +55,8 @@ import java.util.List;
  * @author Pabilo8
  * @since 01-11-2019
  */
-public class ItemIIMachinegun extends ItemUpgradeableTool implements IAdvancedFluidItem, ISkinnable
+@IIItemProperties(category = IICategory.WARFARE)
+public class ItemIIMachinegun extends ItemIIUpgradableTool implements IAdvancedFluidItem, ISkinnable
 {
 	public ItemIIMachinegun()
 	{
@@ -225,9 +228,9 @@ public class ItemIIMachinegun extends ItemUpgradeableTool implements IAdvancedFl
 	public void removeFromWorkbench(EntityPlayer player, ItemStack stack)
 	{
 		NBTTagCompound upgrades = getUpgrades(stack);
-		if(!IIUtils.hasUnlockedIIAdvancement(player, "main/let_me_show_you_its_features")&&upgrades.hasKey("heavy_barrel")&&upgrades.hasKey("second_magazine")&&upgrades.hasKey("infrared_scope"))
+		if(upgrades.hasKey("heavy_barrel")&&upgrades.hasKey("second_magazine")&&upgrades.hasKey("infrared_scope"))
 			IIUtils.unlockIIAdvancement(player, "main/let_me_show_you_its_features");
-		if(!IIUtils.hasUnlockedIIAdvancement(player, "main/hans_9000")&&upgrades.hasKey("belt_fed_loader")&&upgrades.hasKey("shield")&&upgrades.hasKey("water_cooling"))
+		if(upgrades.hasKey("belt_fed_loader")&&upgrades.hasKey("shield")&&upgrades.hasKey("water_cooling"))
 			IIUtils.unlockIIAdvancement(player, "main/hans_9000");
 	}
 

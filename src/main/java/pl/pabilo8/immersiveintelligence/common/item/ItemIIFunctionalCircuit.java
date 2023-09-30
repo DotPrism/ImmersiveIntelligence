@@ -38,11 +38,13 @@ public class ItemIIFunctionalCircuit extends ItemIISubItemsBase<Circuits> implem
 
 	public enum Circuits implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		ARITHMETIC(CircuitTypes.BASIC,
 				"add", "subtract", "multiply", "divide",
 				"modulo",
 				"abs"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		ADVANCED_ARITHMETIC(CircuitTypes.ADVANCED, ARITHMETIC,
 				"power", "root",
 				"min", "max",
@@ -50,11 +52,13 @@ public class ItemIIFunctionalCircuit extends ItemIISubItemsBase<Circuits> implem
 				"ceil", "round", "floor",
 				"sin", "cos", "tan"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		LOGIC(CircuitTypes.BASIC,
 				"and",
 				"or",
 				"not"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		COMPARATOR(CircuitTypes.BASIC,
 				"greater",
 				"less",
@@ -62,12 +66,14 @@ public class ItemIIFunctionalCircuit extends ItemIISubItemsBase<Circuits> implem
 				"less_or_equal",
 				"equal"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		ADVANCED_LOGIC(CircuitTypes.ADVANCED, LOGIC,
 				"nand",
 				"nor",
 				"xor",
 				"xnor"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		TEXT(CircuitTypes.BASIC,
 				"string_join", "equal",
 				"string_split",
@@ -79,6 +85,7 @@ public class ItemIIFunctionalCircuit extends ItemIISubItemsBase<Circuits> implem
 				"string_lowercase", "string_uppercase", "string_snake_case", "string_camel_case",
 				"string_reverse"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		ITEMSTACK(CircuitTypes.ADVANCED,
 				"get_quantity",
 				"set_quantity",
@@ -91,12 +98,14 @@ public class ItemIIFunctionalCircuit extends ItemIISubItemsBase<Circuits> implem
 				"can_stack_with",
 				"matches_oredict"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		ARRAY(CircuitTypes.BASIC,
 				"array_get", "array_set",
 				"array_length",
 				"array_push", "array_pop",
 				"array_swap"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		ENTITY(CircuitTypes.ADVANCED,
 				"entity_get_id",
 				"entity_get_type",
@@ -106,6 +115,7 @@ public class ItemIIFunctionalCircuit extends ItemIISubItemsBase<Circuits> implem
 				"entity_get_y",
 				"entity_get_z"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		DOCUMENT(CircuitTypes.ADVANCED,
 				"document_read_page",
 				"document_read_all_pages_array",
@@ -113,6 +123,7 @@ public class ItemIIFunctionalCircuit extends ItemIISubItemsBase<Circuits> implem
 				"document_get_author",
 				"document_get_title"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		TYPE_CONVERSION(CircuitTypes.BASIC,
 				"is_null",
 				"to_integer",
@@ -121,6 +132,7 @@ public class ItemIIFunctionalCircuit extends ItemIISubItemsBase<Circuits> implem
 				"to_boolean",
 				"to_null"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		FLUIDSTACK(CircuitTypes.BASIC,
 				"is_null",
 				"to_integer",
@@ -129,6 +141,7 @@ public class ItemIIFunctionalCircuit extends ItemIISubItemsBase<Circuits> implem
 				"to_boolean",
 				"to_null"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		MAP(CircuitTypes.BASIC,
 				"is_null",
 				"to_integer",
@@ -137,6 +150,7 @@ public class ItemIIFunctionalCircuit extends ItemIISubItemsBase<Circuits> implem
 				"to_boolean",
 				"to_null"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		VECTOR_ARITHMETIC(CircuitTypes.PROCESSOR,
 				"is_null",
 				"to_integer",
@@ -145,6 +159,7 @@ public class ItemIIFunctionalCircuit extends ItemIISubItemsBase<Circuits> implem
 				"to_boolean",
 				"to_null"
 		),
+		@IIItemProperties(category = IICategory.ELECTRONICS)
 		CRYPTOGRAPHER(CircuitTypes.CRYPTOGRAPHIC,
 				"encrypt_text",
 				"encrypt_number",

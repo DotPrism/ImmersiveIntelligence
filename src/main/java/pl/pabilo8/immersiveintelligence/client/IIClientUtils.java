@@ -5,11 +5,12 @@ import blusunrize.immersiveengineering.common.IEContent;
 import blusunrize.immersiveengineering.common.blocks.BlockTypes_MetalsIE;
 import blusunrize.immersiveengineering.common.blocks.stone.BlockTypes_StoneDecoration;
 import blusunrize.immersiveengineering.common.util.Utils;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -73,6 +74,9 @@ public class IIClientUtils
 	public static IIFontRendererCustomGlyphs fontEngineerTimes, fontNormung, fontKaiser, fontTinkerer;
 
 	@SideOnly(Side.CLIENT)
+	private static final Minecraft mc = Minecraft.getMinecraft();
+
+	@SideOnly(Side.CLIENT)
 	public static void drawStringCentered(FontRenderer fontRenderer, String string, int x, int y, int w, int h, int colour)
 	{
 		fontRenderer.drawString(string, x+(w/2)-(fontRenderer.getStringWidth(string)/2), y+h, colour);
@@ -94,9 +98,9 @@ public class IIClientUtils
 	{
 		Tessellator tes = Tessellator.getInstance();
 		BufferBuilder buf = tes.getBuffer();
-		BlockRendererDispatcher brd = Minecraft.getMinecraft().getBlockRendererDispatcher();
-		TextureManager tex = Minecraft.getMinecraft().renderEngine;
-		EntityPlayer player = ClientUtils.mc().player;
+		BlockRendererDispatcher brd = mc.getBlockRendererDispatcher();
+		TextureManager tex = mc.renderEngine;
+		EntityPlayer player = mc.player;
 
 		//get rendering centre position
 		double posX = player.lastTickPosX+(player.posX-player.lastTickPosX)*(double)partialTicks;
@@ -170,7 +174,13 @@ public class IIClientUtils
 	@SideOnly(Side.CLIENT)
 	public static void bindTexture(ResourceLocation path)
 	{
-		Minecraft.getMinecraft().getTextureManager().bindTexture(path);
+		mc.getTextureManager().bindTexture(path);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public static void displayScreen(GuiScreen screen)
+	{
+		mc.displayGuiScreen(screen);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -196,7 +206,7 @@ public class IIClientUtils
 	{
 		bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 		String tex = (flowing?fs.getFluid().getFlowing(fs): fs.getFluid().getStill(fs)).toString();
-		TextureAtlasSprite sprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(tex);
+		TextureAtlasSprite sprite = mc.getTextureMapBlocks().getAtlasSprite(tex);
 
 		if(sprite!=null)
 		{
@@ -227,9 +237,9 @@ public class IIClientUtils
 		GlStateManager.scale(scale, scale, scale);
 
 		if(progress==0)
-			ClientUtils.mc().getRenderItem().renderItem(stack1, type);
+			mc.getRenderItem().renderItem(stack1, type);
 		else if(progress==1)
-			ClientUtils.mc().getRenderItem().renderItem(stack2, type);
+			mc.getRenderItem().renderItem(stack2, type);
 		else
 		{
 			float h0 = -.5f;
@@ -248,7 +258,7 @@ public class IIClientUtils
 			GL11.glStencilMask(0xFF);
 			GlStateManager.clear(GL11.GL_STENCIL_BUFFER_BIT);
 
-			GlStateManager.rotate(90.0F-ClientUtils.mc().getRenderManager().playerViewY, 0.0F, 1.0F, 0.0F);
+			GlStateManager.rotate(90.0F-mc.getRenderManager().playerViewY, 0.0F, 1.0F, 0.0F);
 
 			GlStateManager.disableTexture2D();
 			worldrenderer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION);
@@ -256,7 +266,7 @@ public class IIClientUtils
 			tessellator.draw();
 			GlStateManager.enableTexture2D();
 
-			GlStateManager.rotate(-(90.0F-ClientUtils.mc().getRenderManager().playerViewY), 0.0F, 1.0F, 0.0F);
+			GlStateManager.rotate(-(90.0F-mc.getRenderManager().playerViewY), 0.0F, 1.0F, 0.0F);
 
 			GlStateManager.colorMask(true, true, true, true);
 			GlStateManager.depthMask(true);
@@ -264,10 +274,10 @@ public class IIClientUtils
 			GL11.glStencilMask(0x00);
 
 			GL11.glStencilFunc(GL11.GL_EQUAL, 0, 0xFF);
-			ClientUtils.mc().getRenderItem().renderItem(stack1, type);
+			mc.getRenderItem().renderItem(stack1, type);
 
 			GL11.glStencilFunc(GL11.GL_EQUAL, 1, 0xFF);
-			ClientUtils.mc().getRenderItem().renderItem(stack2, type);
+			mc.getRenderItem().renderItem(stack2, type);
 
 			GL11.glDisable(GL11.GL_STENCIL_TEST);
 		}
@@ -475,4 +485,11 @@ public class IIClientUtils
 		return builder.toString();
 	}
 
+	/**
+	 * @return Current player entity
+	 */
+	public static EntityPlayer getPlayer()
+	{
+		return mc.player;
+	}
 }

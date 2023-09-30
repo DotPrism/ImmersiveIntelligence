@@ -4,6 +4,7 @@ import blusunrize.immersiveengineering.common.items.IEItemInterfaces.ITextureOve
 import blusunrize.immersiveengineering.common.util.ItemNBTHelper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -49,14 +50,21 @@ public class ItemIIBulletMagazine extends ItemIISubItemsBase<Magazines> implemen
 
 	public enum Magazines implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.WARFARE)
 		MACHINEGUN(48, IIContent.itemAmmoMachinegun),
+		@IIItemProperties(category = IICategory.WARFARE)
 		SUBMACHINEGUN(24, IIContent.itemAmmoSubmachinegun,true),
+		@IIItemProperties(category = IICategory.WARFARE)
 		RIFLE(12, IIContent.itemAmmoMachinegun),
+		@IIItemProperties(category = IICategory.WARFARE)
 		SUBMACHINEGUN_DRUM(64, IIContent.itemAmmoSubmachinegun),
+		@IIItemProperties(category = IICategory.WARFARE)
 		ASSAULT_RIFLE(32, IIContent.itemAmmoAssaultRifle,true),
+		@IIItemProperties(category = IICategory.WARFARE)
 		AUTOCANNON(16, IIContent.itemAmmoAutocannon),
+		@IIItemProperties(category = IICategory.WARFARE)
 		CPDS_DRUM(128, IIContent.itemAmmoMachinegun),
-		@IIItemProperties(hidden = true)
+		@IIItemProperties(hidden = true, category = IICategory.WARFARE)
 		AUTOMATIC_REVOLVER(16, IIContent.itemAmmoRevolver);
 
 		public final int capacity;
@@ -238,6 +246,14 @@ public class ItemIIBulletMagazine extends ItemIISubItemsBase<Magazines> implemen
 	}
 
 	//--- Inventory Storage ---//
+
+
+	@Override
+	public void onCreated(ItemStack stack, World worldIn, EntityPlayer playerIn)
+	{
+		super.onCreated(stack, worldIn, playerIn);
+		if (stackToSub(stack)==Magazines.CPDS_DRUM) IIUtils.unlockIIAdvancement(playerIn, "main/craft_cpds");
+	}
 
 	/**
 	 * Slower, but allows storing more of nbt-rich bullets

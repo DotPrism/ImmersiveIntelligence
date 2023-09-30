@@ -23,6 +23,8 @@ import pl.pabilo8.immersiveintelligence.client.ClientProxy;
 import pl.pabilo8.immersiveintelligence.client.model.armor.ModelLightEngineerArmor;
 import pl.pabilo8.immersiveintelligence.common.network.IIPacketHandler;
 import pl.pabilo8.immersiveintelligence.common.network.messages.MessageItemKeybind;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -33,6 +35,7 @@ import java.util.Map;
  * @author Pabilo8
  * @since 13.09.2020
  */
+@IIItemProperties(category = IICategory.WARFARE)
 public class ItemIILightEngineerHelmet extends ItemIILightEngineerArmorBase implements IElectricEquipment, IGasmask
 {
 	public ItemIILightEngineerHelmet()

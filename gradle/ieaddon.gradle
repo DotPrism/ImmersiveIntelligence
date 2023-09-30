@@ -14,7 +14,10 @@ dependencies {
     implementation "org.squiddev:cc-tweaked-1.12.2:1.89.2"
     implementation "li.cil.oc:OpenComputers:MC1.12.2-1.7.5.221"
 
+    compileOnly files("$rootDir/libs/MysticalMechanics0.18.jar")
+
     //Download from curse maven
+    compileOnly "curse.maven:tough-as-nails-246391:2710969"
     compileOnly "curse.maven:immersive-petroleum-268250:3382321"
     compileOnly "curse.maven:immersive-posts-314645:2951672"
     compileOnly "curse.maven:immersive-technology-359407:3658279"

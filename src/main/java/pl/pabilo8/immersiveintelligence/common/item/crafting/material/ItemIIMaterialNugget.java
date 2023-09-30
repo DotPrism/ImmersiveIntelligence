@@ -19,12 +19,19 @@ public class ItemIIMaterialNugget extends ItemIISubItemsBase<MaterialsNugget>
 
 	public enum MaterialsNugget implements IIItemEnum
 	{
+		@IIItemProperties(category = IICategory.RESOURCE)
 		ADVANCED_ELECTRONIC_ALLOY,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		BRASS,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		PLATINUM,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		TUNGSTEN,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		ZINC,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		SILICON,
+		@IIItemProperties(category = IICategory.RESOURCE)
 		DURALUMINIUM
 	}
 }

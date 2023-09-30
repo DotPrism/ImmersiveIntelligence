@@ -30,7 +30,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import pl.pabilo8.immersiveintelligence.ImmersiveIntelligence;
 import pl.pabilo8.immersiveintelligence.common.IIContent;
-import pl.pabilo8.immersiveintelligence.common.IILogger;
+import pl.pabilo8.immersiveintelligence.common.IIUtils;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockEnum;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 
@@ -96,6 +96,8 @@ public class BlockIIBase<E extends Enum<E> & IIBlockEnum> extends Block implemen
 	public final ItemBlockIIBase itemBlock;
 
 	public Map<Integer, String> tesrMap = new HashMap<>();
+
+	public IIBlockProperties getBlockProperties() { return IIUtils.getAnnotation(IIBlockProperties.class,this); }
 
 	public BlockIIBase(String name, PropertyEnum<E> mainProperty, Material material, Function<BlockIIBase<E>, ItemBlockIIBase> itemBlock, Object... additionalProperties)
 	{

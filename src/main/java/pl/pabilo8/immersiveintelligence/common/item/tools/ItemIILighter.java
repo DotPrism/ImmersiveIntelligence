@@ -32,6 +32,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import pl.pabilo8.immersiveintelligence.Config.IIConfig.Tools;
 import pl.pabilo8.immersiveintelligence.api.LighterFuelHandler;
 import pl.pabilo8.immersiveintelligence.common.IIUtils;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IICategory;
+import pl.pabilo8.immersiveintelligence.common.util.item.IIItemEnum.IIItemProperties;
 import pl.pabilo8.immersiveintelligence.common.util.item.ItemIIBase;
 
 import javax.annotation.Nullable;
@@ -41,6 +43,7 @@ import java.util.List;
  * @author Pabilo8
  * @since 2019-05-23
  */
+@IIItemProperties(category = IICategory.WARFARE)
 public class ItemIILighter extends ItemIIBase implements ITool
 {
 

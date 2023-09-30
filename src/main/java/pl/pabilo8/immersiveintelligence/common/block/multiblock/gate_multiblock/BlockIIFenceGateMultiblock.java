@@ -3,7 +3,6 @@ package pl.pabilo8.immersiveintelligence.common.block.multiblock.gate_multiblock
 import blusunrize.immersiveengineering.api.IEProperties;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.util.BlockRenderLayer;
 import pl.pabilo8.immersiveintelligence.common.block.multiblock.gate_multiblock.BlockIIFenceGateMultiblock.IIBlockTypes_FenceGate;
 import pl.pabilo8.immersiveintelligence.common.block.multiblock.gate_multiblock.multiblock.*;
 import pl.pabilo8.immersiveintelligence.common.block.multiblock.gate_multiblock.multiblock.MultiblockAluminiumChainFenceGate.TileEntityAluminiumChainFenceGate;
@@ -12,9 +11,10 @@ import pl.pabilo8.immersiveintelligence.common.block.multiblock.gate_multiblock.
 import pl.pabilo8.immersiveintelligence.common.block.multiblock.gate_multiblock.multiblock.MultiblockSteelFenceGate.TileEntitySteelFenceGate;
 import pl.pabilo8.immersiveintelligence.common.block.multiblock.gate_multiblock.multiblock.MultiblockWoodenChainFenceGate.TileEntityWoodenChainFenceGate;
 import pl.pabilo8.immersiveintelligence.common.block.multiblock.gate_multiblock.multiblock.MultiblockWoodenFenceGate.TileEntityWoodenFenceGate;
-import pl.pabilo8.immersiveintelligence.common.util.IILib;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.EnumMultiblockProvider;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IIBlockProperties;
 import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.IITileMultiblockEnum;
+import pl.pabilo8.immersiveintelligence.common.util.block.IIBlockInterfaces.TernaryValue;
 import pl.pabilo8.immersiveintelligence.common.util.multiblock.BlockIIMultiblock;
 
 /**
@@ -27,16 +27,22 @@ public class BlockIIFenceGateMultiblock extends BlockIIMultiblock<IIBlockTypes_F
 	public enum IIBlockTypes_FenceGate implements IITileMultiblockEnum
 	{
 		@EnumMultiblockProvider(multiblock = MultiblockWoodenFenceGate.class, tile = TileEntityWoodenFenceGate.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		WOODEN,
 		@EnumMultiblockProvider(multiblock = MultiblockWoodenChainFenceGate.class, tile = TileEntityWoodenChainFenceGate.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		WOODEN_CHAIN,
 		@EnumMultiblockProvider(multiblock = MultiblockSteelFenceGate.class, tile = TileEntitySteelFenceGate.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		STEEL,
 		@EnumMultiblockProvider(multiblock = MultiblockSteelChainFenceGate.class, tile = TileEntitySteelChainFenceGate.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		STEEL_CHAIN,
 		@EnumMultiblockProvider(multiblock = MultiblockAluminiumFenceGate.class, tile = TileEntityAluminiumFenceGate.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		ALUMINIUM,
 		@EnumMultiblockProvider(multiblock = MultiblockAluminiumChainFenceGate.class, tile = TileEntityAluminiumChainFenceGate.class)
+		@IIBlockProperties(hidden = TernaryValue.TRUE)
 		ALUMINIUM_CHAIN
 	}
 

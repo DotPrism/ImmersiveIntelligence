@@ -53,6 +53,10 @@ public class IILib
 
 	public static final ResLoc RES_TEXTURES = ResLoc.of(RES_II, "textures/");
 	public static final ResLoc RES_TEXTURES_GUI = ResLoc.of(RES_TEXTURES, "gui");
+	/**
+	 * Creative Container GUI textures
+	 */
+	public static final ResLoc RES_TEXTURES_CREATIVE = ResLoc.of(RES_TEXTURES, "gui/creative_gui/");
 	public static final ResLoc RES_TEXTURES_MANUAL = ResLoc.of(RES_TEXTURES, "gui/manual/");
 	public static final ResLoc RES_TEXTURES_SKIN = ResLoc.of(RES_TEXTURES, "skins/");
 
