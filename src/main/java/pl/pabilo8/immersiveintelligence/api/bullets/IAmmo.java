@@ -131,8 +131,7 @@ public interface IAmmo
 	 *
 	 * @param stack        bullet stack
 	 * @param component    added component
-	 * @param componentNBT
-	 * @return bullet components in appropriate order from stack NBT
+	 * @param componentNBT return value. bullet components in appropriate order from stack NBT
 	 */
 	void addComponents(ItemStack stack, IAmmoComponent component, NBTTagCompound componentNBT);
 

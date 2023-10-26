@@ -69,7 +69,7 @@ public class BlockIIMechanicalConnector extends BlockIITileProvider<IIBlockTypes
 		if(te instanceof TileEntityMechanicalWheel)
 		{
 			TileEntityMechanicalWheel connector = (TileEntityMechanicalWheel)te;
-			if(world.isAirBlock(pos.offset(connector.facing)))
+			if(world.isAirBlock(pos.offset(connector.facing)) || !world.isBlockFullCube(pos.offset(connector.facing)))
 			{
 				this.dropBlockAsItem(connector.getWorld(), pos, world.getBlockState(pos), 0);
 				connector.getWorld().setBlockToAir(pos);

@@ -18,8 +18,10 @@ import pl.pabilo8.immersiveintelligence.common.IISaveData;
 import pl.pabilo8.immersiveintelligence.common.IISounds;
 import pl.pabilo8.immersiveintelligence.common.commands.CommandII;
 import pl.pabilo8.immersiveintelligence.common.compat.IICompatModule;
+import pl.pabilo8.immersiveintelligence.common.event.IEOverrideEventHandler;
 import pl.pabilo8.immersiveintelligence.common.event.IIItemCreatedEventHandler;
 import pl.pabilo8.immersiveintelligence.common.util.IISkinHandler;
+import pl.pabilo8.immersiveintelligence.common.util.Reflector;
 
 import static pl.pabilo8.immersiveintelligence.ImmersiveIntelligence.MODID;
 import static pl.pabilo8.immersiveintelligence.ImmersiveIntelligence.VERSION;
@@ -55,7 +57,11 @@ public class ImmersiveIntelligence
 			return this.formatting+this.name+TextFormatting.RESET;
 		}
 	}
-	public static final VersionType VERSION_TYPE = VersionType.DEV;
+
+	/**
+	 * Use this to define the version
+	 */
+	public static final VersionType VERSION_TYPE = Enum.valueOf(VersionType.class, "@VERSION_TYPE@");
 
 	@SidedProxy(clientSide = "pl.pabilo8.immersiveintelligence.client.ClientProxy", serverSide = "pl.pabilo8.immersiveintelligence.common.CommonProxy")
 	public static CommonProxy proxy;
@@ -81,6 +87,7 @@ public class ImmersiveIntelligence
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+		//MinecraftForge.EVENT_BUS.unregister(new blusunrize.immersiveengineering.common.EventHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(INSTANCE, proxy);
 
 		IIItemCreatedEventHandler iiItemCreatedEventHandler = new IIItemCreatedEventHandler();
@@ -95,6 +102,10 @@ public class ImmersiveIntelligence
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		proxy.postInit();
+
+		/* Here you can override any registered event handlers */
+		Reflector.getForgeEventListeners();
+		Reflector.overrideEventHandler(blusunrize.immersiveengineering.common.EventHandler.class, new IEOverrideEventHandler());
 	}
 
 	@Mod.EventHandler

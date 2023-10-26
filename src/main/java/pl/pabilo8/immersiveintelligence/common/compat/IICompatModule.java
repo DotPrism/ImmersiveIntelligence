@@ -6,7 +6,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 import pl.pabilo8.immersiveintelligence.Config.IIConfig;
-import pl.pabilo8.immersiveintelligence.ImmersiveIntelligence;
 import pl.pabilo8.immersiveintelligence.common.IILogger;
 import pl.pabilo8.immersiveintelligence.common.compat.it.ImmersiveTechnologyHelper;
 
@@ -44,7 +43,10 @@ public abstract class IICompatModule
 		moduleClasses.put("opencomputers", OpenComputersHelper.class);
 		moduleClasses.put("computercraft", ComputerCraftHelper.class);
 		moduleClasses.put("toughasnails", ToughAsNailsHelper.class);
+		moduleClasses.put("mysticalmechanics", MysticalMechanicsAPIHelper.class);
 	}
+
+	public abstract String getName();
 
 	public static void doModulesPreInit()
 	{
@@ -94,6 +96,7 @@ public abstract class IICompatModule
 		for(IICompatModule compat : IICompatModule.modules)
 			try
 			{
+				IILogger.info("Initializing "+compat.getName()+" compat");
 				compat.init();
 			}
 			catch(Exception exception)

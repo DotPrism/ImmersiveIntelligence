@@ -27,6 +27,12 @@ import javax.annotation.Nullable;
  */
 public class BaublesHelper extends IICompatModule
 {
+	@Override
+	public String getName()
+	{
+		return "Baubles";
+	}
+
 	private static final IBauble BAUBLE_POWERPACK = new IBauble()
 	{
 		@Override

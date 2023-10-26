@@ -18,7 +18,8 @@ import java.net.URL;
 import java.util.*;
 
 /**
- * @author Pabilo8, GabrielV (rewrite)
+ * @author Pabilo8
+ * @author GabrielV (gabriel@iiteam.net)
  * @since 30-06-2020
  */
 public class IISkinHandler

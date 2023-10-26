@@ -1,0 +1,22 @@
+ext {
+    ii_javadocDir = rootProject.file("docs")
+}
+
+tasks.register('generateIIJavadoc') {
+    doLast {
+        def outputDir = ii_javadocDir.toPath()
+        def packageName = modGroup+'.'+modName
+        println('+--------------------------------------------------------------------+\n' +
+                '|Archangel Documentation Engine provided by Ministry of Documentation|\n' +
+                '|Any problems can be directed to GabrielV (gabriel@iiteam.net)       |\n' +
+                '+--------------------------------------------------------------------+')
+        println('Generating documentation of '+packageName+' to: '+outputDir)
+
+
+        def stylesheetDir = rootProject.file('art/docs/stylesheet.css')
+        exec {
+            executable 'javadoc'
+            args = ['-private', '-encoding', 'UTF-8', '-docencoding', 'utf-8', '-charset', 'utf-8', '-stylesheetfile', stylesheetDir.toPath(), '-subpackages', '-splitindex', '-use', '-author', '-version', '-tag', 'ii-certified:a:Matches the Mk.2 II Code Standard Certified by Ministry of Documentation (gabriel@iiteam.net)', '-d', outputDir, '-sourcepath', project.sourceSets.main.allJava.srcDirs[0], packageName]
+        }
+    }
+}

@@ -6,6 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import javax.annotation.Nonnull;
 
 /**
+ * @ii-certified
  * @author Pabilo8
  * @since 19-08-2019
  */

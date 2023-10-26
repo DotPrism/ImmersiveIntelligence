@@ -13,6 +13,12 @@ public class TerrafirmaHelper extends IICompatModule
 	}
 
 	@Override
+	public String getName()
+	{
+		return "Terrafirma";
+	}
+
+	@Override
 	public void registerRecipes()
 	{
 

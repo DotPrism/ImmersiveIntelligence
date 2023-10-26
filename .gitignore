@@ -22,6 +22,9 @@ bin/
 .gradle
 custom.gradle
 
+# Documentation
+docs/
+
 # Forge
 run/
 hs_err_pid*

@@ -31,15 +31,23 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
+ext {
+    // Specify mod version can be: BETA, RETAIL or DEV
+    versionType = 'DEV'
+}
+
 //--- Settings
 minecraft {
     version = modForge
     runDir = "run"
 
     replace "@VERSION@", modVersion
+    replace "@VERSION_TYPE@", versionType
     mappings = modMappings
     useDepAts = true
     makeObfSourceJar = false
+
+    accessTransformer('src/main/resources/META-INF/'+modATPath)
 }
 
 //--- Handling custom.gradle
@@ -107,6 +115,9 @@ tasks.register('deobfJar', Jar) {
         attributes 'Maven-Artifact': modGroup + ':' + modName + ':' + modVersion
     }
 }
+
+if(ii_generateJavadoc=='true')
+    apply from: rootProject.file('gradle/javadoc.gradle')
 
 artifacts {
     archives deobfJar

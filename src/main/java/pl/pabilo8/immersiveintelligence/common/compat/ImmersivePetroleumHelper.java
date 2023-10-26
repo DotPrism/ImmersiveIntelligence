@@ -54,6 +54,12 @@ public class ImmersivePetroleumHelper extends IICompatModule
 	}
 
 	@Override
+	public String getName()
+	{
+		return "ImmersivePetroleum";
+	}
+
+	@Override
 	public void registerRecipes()
 	{
 

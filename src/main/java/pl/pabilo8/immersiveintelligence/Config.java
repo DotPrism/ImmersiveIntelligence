@@ -1670,6 +1670,10 @@ public class Config
 			@Comment({"Torque multiplier for the windmill."})
 			@Mapped(mapClass = Config.class, mapName = "manual_floatA")
 			public static float dynamoWatermillTorque = 24f;
+
+			@Comment({"Torque multiplier for the axle from MysticalMechanics."})
+			@Mapped(mapClass = Config.class, mapName = "manual_floatA")
+			public static float dynamoAxleTorque = 18f;
 		}
 	}
 

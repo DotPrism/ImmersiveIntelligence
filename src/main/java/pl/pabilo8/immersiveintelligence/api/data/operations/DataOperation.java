@@ -8,6 +8,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
+ * Template class for all <code>DataOperation</code> subclasses.
+ * @ii-certified
  * @author Pabilo8
  * @since 05-07-2019
  */
@@ -23,6 +25,13 @@ public abstract class DataOperation
 	public String[] params;
 	public Class<? extends IDataType> expectedResult;
 
+	/**
+	 * Main function body of the data operation.
+	 * @ii-certified
+	 * @param packet {@link DataPacket} containing input data
+	 * @param data {@link DataTypeExpression} containing input expression
+	 * @return {@link IDataType} of desired type by the circuit
+	 */
 	@Nonnull
 	public abstract IDataType execute(DataPacket packet, DataTypeExpression data);
 

@@ -6,6 +6,11 @@ import net.minecraft.util.math.Vec3i;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class containing Axis Aligned Bounding Box (AABB) operations
+ * @author GabrielV (gabriel@iiteam.net)
+ * @since 0.3.0
+ */
 public class AABBMath
 {
 	public static List<BlockPos> CreateSphere(Vec3i center, int radius)

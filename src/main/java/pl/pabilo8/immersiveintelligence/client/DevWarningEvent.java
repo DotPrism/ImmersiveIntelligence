@@ -1,6 +1,5 @@
 package pl.pabilo8.immersiveintelligence.client;
 
-import blusunrize.immersiveengineering.client.ImmersiveModelRegistry;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -14,6 +13,8 @@ public class DevWarningEvent
 	public void onGuiOpenEvent(GuiOpenEvent event)
 	{
 		if (event.getGui() instanceof GuiMainMenu&& !GuiDevWarning.accepted&&ImmersiveIntelligence.VERSION_TYPE==VersionType.DEV||ImmersiveIntelligence.VERSION_TYPE==VersionType.BETA)
+		{
 			event.setGui(new GuiDevWarning(event.getGui()));
+		}
 	}
 }

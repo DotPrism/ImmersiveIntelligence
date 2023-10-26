@@ -14,12 +14,17 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 /**
+ * @ii-certified
  * @author Pabilo8
+ * @author GabrielV (gabriel@iiteam.net)
  * @since 30-06-2020
+ * Interface used for all skinnable entities, items, etc.
  */
 public interface ISkinnable
 {
 	/**
+	 * Get skinnable's current skin
+	 * @ii-certified
 	 * @param stack of a skinnable item
 	 * @return skin ID or empty string
 	 */
@@ -30,7 +35,8 @@ public interface ISkinnable
 
 	/**
 	 * Applies a skin to the ItemStack
-	 * @param stack of a skinnable item
+	 * @ii-certified
+	 * @param stack {@link ItemStack} of a skinnable item
 	 * @param skinName skin ID
 	 */
 	default void applySkinnableSkin(ItemStack stack, String skinName)
@@ -39,16 +45,22 @@ public interface ISkinnable
 	}
 
 	/**
+	 * TODO: 8/12/2023 Replace all usages of this function with <code>{@link IISkinHandler#isValidSkin(String)}</code> ~GabrielV
+	 * @deprecated Replaced by <code>{@link IISkinHandler#isValidSkin(String)}</code>
 	 * @param skin skin ID
-	 * @return true if skin exists
-	 * @deprecated Replaced by <code>IISkinHandler.isValidSkin()</code>
-	 * @see pl.pabilo8.immersiveintelligence.common.util.IISkinHandler#isValidSkin(String)
-	 * @// TODO: 8/12/2023 Replace all usages of this function with <code>IISkinHandler.isValidSkin()</code>
+	 * @return true if the skin exists
 	 */
 	default boolean isValidSkin(String skin)
 	{
 		return !skin.isEmpty()&&IISkinHandler.specialSkins.containsKey(skin);
 	}
+
+	/**
+	 * Internal function used by the skinnable. Adds the skin tooltip (skin name and description)
+	 * @ii-certified
+	 * @param stack {@link ItemStack} of the item we want to add tooltip to
+	 * @param tooltip Tooltip of the item
+	 */
 	default void addSkinTooltip(@Nonnull ItemStack stack, @Nonnull List<String> tooltip)
 	{
 		String skin = getSkinnableCurrentSkin(stack);
@@ -61,9 +73,9 @@ public interface ISkinnable
 	}
 
 	/**
-	 *
-	 * @param stack Itemstack to get skin from
-	 * @return Skin rarity if found otherwise <code>null</code>
+	 * @ii-certified
+	 * @param stack {@link ItemStack} to get the skin from
+	 * @return Skin rarity if found, otherwise <code>null</code>
 	 */
 	@Nullable
 	default IRarity getSkinRarity(@Nonnull ItemStack stack)
@@ -75,11 +87,13 @@ public interface ISkinnable
 	}
 
 	/**
+	 * @ii-certified
 	 * @return Name of the skinnable
 	 */
 	String getSkinnableName();
 
 	/**
+	 * @ii-certified
 	 * @return Default texture location of the skinnable
 	 */
 	String getSkinnableDefaultTextureLocation();

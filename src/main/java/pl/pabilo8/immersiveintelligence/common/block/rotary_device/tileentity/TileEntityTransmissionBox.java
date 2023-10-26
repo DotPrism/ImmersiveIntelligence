@@ -12,10 +12,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraftforge.common.capabilities.Capability;
-import pl.pabilo8.immersiveintelligence.api.rotary.CapabilityRotaryEnergy;
-import pl.pabilo8.immersiveintelligence.api.rotary.IRotaryEnergy;
-import pl.pabilo8.immersiveintelligence.api.rotary.RotaryStorage;
-import pl.pabilo8.immersiveintelligence.api.rotary.RotaryUtils;
+import pl.pabilo8.immersiveintelligence.api.rotary.*;
 import pl.pabilo8.immersiveintelligence.api.utils.IRotationalEnergyBlock;
 import pl.pabilo8.immersiveintelligence.common.network.IIPacketHandler;
 import pl.pabilo8.immersiveintelligence.common.network.messages.MessageRotaryPowerSync;
@@ -23,8 +20,8 @@ import pl.pabilo8.immersiveintelligence.common.network.messages.MessageRotaryPow
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import static pl.pabilo8.immersiveintelligence.api.rotary.CapabilityRotaryEnergy.ROTARY_ENERGY;
 import static pl.pabilo8.immersiveintelligence.Config.IIConfig.MechanicalDevices.rofConversionRatio;
+import static pl.pabilo8.immersiveintelligence.api.rotary.CapabilityRotaryEnergy.ROTARY_ENERGY;
 
 /**
  * @author Pabilo8
@@ -128,12 +125,10 @@ public class TileEntityTransmissionBox extends TileEntityIEBase implements ITick
 		{
 			tick = 10;
 			TileEntity t = world.getTileEntity(pos.offset(facing));
-			float torque = RotaryUtils.getTorqueForIEDevice(t, 1);
-			int output = (int)(20*IEConfig.Machines.dynamo_output*rotation*rofConversionRatio);
-			float speed = output/torque;
-			torque = output/speed;
 
-			energy.grow(Math.round(speed), Math.round(torque), 0.98f);
+			float[] st = RotaryMath.IEToRoF(rotation, t);
+
+			energy.grow(Math.round(st[0]), Math.round(st[1]), 0.98f);
 			if(world.getTotalWorldTime()%20==0)
 			{
 				IIPacketHandler.INSTANCE.sendToAllAround(new MessageRotaryPowerSync(energy, 0, pos), IIPacketHandler.targetPointFromTile(this, 24));

@@ -8,6 +8,7 @@ import pl.pabilo8.immersiveintelligence.api.data.types.DataTypeNull;
 import pl.pabilo8.immersiveintelligence.api.data.types.IDataType;
 
 /**
+ * @ii-certified
  * @author Pabilo8
  * @since 05-07-2019
  */

@@ -340,7 +340,9 @@ public class CommonProxy implements IGuiHandler, LoadingCallback
 					if (properties==null)IILogger.error("Cannot find IIBlockProperties for block: "+((BlockIIBase<?>)block).name);
 					// IF A BLOCK DOES NOT HAVE IIBlockProperties ANNOTATION THEN IT WILL NOT BE DISPLAYED IN CREATIVE MENU!!!
 					if (properties!=null&&properties.hidden()!=TernaryValue.TRUE)
+					{
 						IIContent.CATEGORY_ITEM_MAP.add(new IIItemStack(new ItemStack(block, 1, meta), properties.category()));
+					}
 					//subtype dependent OreDict
 					if(properties!=null)
 						for(String ore : properties.oreDict())

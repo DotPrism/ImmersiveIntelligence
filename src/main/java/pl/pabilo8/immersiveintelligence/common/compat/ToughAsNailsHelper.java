@@ -1,19 +1,17 @@
 package pl.pabilo8.immersiveintelligence.common.compat;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import pl.pabilo8.immersiveintelligence.common.IILogger;
 import pl.pabilo8.immersiveintelligence.common.item.armor.ItemIILightEngineerChestplate;
 import toughasnails.api.TANCapabilities;
 import toughasnails.api.stat.capability.ITemperature;
-import toughasnails.api.temperature.*;
+import toughasnails.api.temperature.IModifierMonitor;
+import toughasnails.api.temperature.ITemperatureModifier;
+import toughasnails.api.temperature.Temperature;
+import toughasnails.api.temperature.TemperatureHelper;
 import toughasnails.temperature.modifier.TemperatureModifier;
-
-import java.lang.reflect.Field;
 
 public class ToughAsNailsHelper extends IICompatModule
 {
@@ -21,6 +19,12 @@ public class ToughAsNailsHelper extends IICompatModule
 	public void preInit()
 	{
 
+	}
+
+	@Override
+	public String getName()
+	{
+		return "ToughAsNails";
 	}
 
 	@Override

@@ -4,9 +4,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 /**
- * @author GabrielV
+ * @ii-certified
+ * @author GabrielV (gabriel@iiteam.net)
  * @version 1.0.0
- * This class is used for encrypting data using XOR Cipher.
+ * This class is used for encrypting data using XOR Cipher. We only use it for our "cryptographer" circuits hence the name.
  */
 public class Cryptographer
 {

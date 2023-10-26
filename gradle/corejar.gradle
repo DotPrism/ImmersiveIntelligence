@@ -78,6 +78,6 @@ static String getOr(String envProp, projectProp)
 
 boolean hasKeyStore()
 {
-    if (System.getenv("SIGNING_KEY_STORE_PATH")==null) return false;
+    if (System.getenv("SIGNING_KEY_STORE_PATH")==null) return false
     return project.hasProperty('keyStore')||!System.getenv("SIGNING_KEY_STORE_PATH").isEmpty()
 }
