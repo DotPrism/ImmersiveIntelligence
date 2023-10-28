@@ -163,6 +163,7 @@ public class ItemIIWeaponUpgrade extends ItemIISubItemsBase<WeaponUpgrades> impl
 		EXTENDED_BARREL(WeaponTypes.RIFLE, "semi_automatic");
 
 		public final ImmutableSet<WeaponTypes> toolset;
+		public final ImmutableSet<String> incompatibilities;
 		private final BiPredicate<ItemStack, ItemStack> applyCheck;
 		private final BiConsumer<ItemStack, NBTTagCompound> function;
 
@@ -200,6 +201,8 @@ public class ItemIIWeaponUpgrade extends ItemIISubItemsBase<WeaponUpgrades> impl
 				return true;
 			};
 
+			this.incompatibilities = ImmutableSet.copyOf(incompatible);
+
 			//Set function applying NBT data to item
 			BiConsumer<ItemStack, NBTTagCompound> nbtFunction = (upgrade, modifications) -> modifications.setBoolean(getName(), true);
 			this.function = (appliedTag!=null)?nbtFunction.andThen(appliedTag): nbtFunction;
@@ -216,6 +219,20 @@ public class ItemIIWeaponUpgrade extends ItemIISubItemsBase<WeaponUpgrades> impl
 		//add valid weapon types
 		for(WeaponTypes type : sub.toolset)
 			list.add(IIUtils.getHexCol(type.color, type.symbol+" "+I18n.format(IILib.DESC_TOOLUPGRADE+"item."+type.getName())));
+
+		// Add incompatibilities
+		if (sub.incompatibilities.size() > 0)
+		{
+			list.add(IIUtils.getHexCol(0xfc2c28, I18n.format(IILib.DESC_INCOMPATIBLE_WITH)));
+			for (int i = 0; i < sub.incompatibilities.size(); i++)
+			{
+				String incompatibility = sub.incompatibilities.asList().get(i);
+				StringBuilder info = new StringBuilder();
+				info.append(I18n.format(IILib.ITEM_WEAPON_UPGRADE+incompatibility+".name"));
+				if (!(i + 1 >= sub.incompatibilities.size())) info.append(", ");
+				list.add(IIUtils.getHexCol(0xfc2c28, info.toString()));
+			}
+		}
 
 		//add description
 		String[] flavour = ImmersiveEngineering.proxy.splitStringOnWidth(

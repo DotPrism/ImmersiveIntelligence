@@ -31,6 +31,7 @@ public class IILib
 	public static final String DATA_KEY = "datasystem.immersiveintelligence.";
 	public static final String ROTARY_KEY = "rotary.immersiveintelligence.";
 	public static final String BLOCK_KEY = "tile.immersiveintelligence.";
+	public static final String ITEM_KEY = "item.immersiveintelligence.";
 
 	public static final String INFO_KEY_TOOL_DURABILITY = INFO_KEY+"tool_durability";
 	public static final String DESC_TOOLUPGRADE = DESCRIPTION_KEY+"toolupgrade.";
@@ -39,6 +40,9 @@ public class IILib
 	public static final String DESC_HOLD_SHIFT = DESCRIPTION_KEY+"info.holdShift";
 	public static final String DESC_HOLD_ALT = DESCRIPTION_KEY+"info.holdAlt";
 	public static final String DESC_HOLD_TAB = DESCRIPTION_KEY+"info.holdTab";
+	public static final String DESC_INCOMPATIBLE_WITH = DESCRIPTION_KEY+"toolupgrade.incompatible";
+	public static final String ITEM_WEAPON_UPGRADE = ITEM_KEY+"weapon_upgrade.";
+	public static final String ITEM_ARMOR_UPGRADE = ITEM_KEY+"armor_upgrade.";
 
 	//--- Patterns ---//
 	public static final ResLoc RES_II = ResLoc.root(ImmersiveIntelligence.MODID);

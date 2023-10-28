@@ -19,6 +19,7 @@ import pl.pabilo8.immersiveintelligence.common.util.item.ItemIISubItemsBase;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.function.BiConsumer;
@@ -69,10 +70,10 @@ public class ItemIIArmorUpgrade extends ItemIISubItemsBase<ArmorUpgrades> implem
 
 		@IIItemProperties(category = IICategory.WARFARE)
 		INFILTRATOR_GEAR(ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_HELMET),
-				"infiltrator_gear", "engineer_gear"),
+				"technician_gear", "engineer_gear"),
 		@IIItemProperties(category = IICategory.WARFARE)
 		TECHNICIAN_GEAR(ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_HELMET),
-				"technician_gear", "engineer_gear"),
+				"infiltrator_gear", "engineer_gear"),
 		@IIItemProperties(category = IICategory.WARFARE)
 		ENGINEER_GEAR(ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_HELMET),
 				"technician_gear", "infiltrator_gear"),
@@ -88,7 +89,7 @@ public class ItemIIArmorUpgrade extends ItemIISubItemsBase<ArmorUpgrades> implem
 					modifications.setDouble("toughness_increase", upgrade.getCount()*0.5);
 					modifications.setDouble("armor_increase", upgrade.getCount());
 				},
-				"composite_plates"),
+				"steel_plates", "composite_plates"),
 
 		//Adds 1 armor thickness point, Deflects arrows, blocks damage with base <8+((i-1)*(amount*0.75)), makes the weapon break, -2.5% speed per part
 		@IIItemProperties(stackSize = 3, category = IICategory.WARFARE)
@@ -99,20 +100,20 @@ public class ItemIIArmorUpgrade extends ItemIISubItemsBase<ArmorUpgrades> implem
 					modifications.setDouble("toughness_increase", upgrade.getCount());
 					modifications.setDouble("armor_increase", upgrade.getCount());
 				},
-				"steel_plates"),
+				"composite_plates", "steel_plates"),
 
+		//--- Chestplate ---//
 		//Protects from radiation
 		@IIItemProperties(category = IICategory.WARFARE)
 		HAZMAT_COATING(
 				ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_HELMET, ArmorTypes.LIGHT_ENGINEER_CHESTPLATE, ArmorTypes.LIGHT_ENGINEER_LEGGINGS, ArmorTypes.LIGHT_ENGINEER_BOOTS),
-				(upgrade, modifications) -> modifications.setBoolean("hazmat", true)),
+				(upgrade, modifications) -> modifications.setBoolean("hazmat", true), "hazmat_coating"),
 
-		//--- Chestplate ---//
 
 		// Protects from reaching overheating if TAN is active
 		@IIItemProperties(category = IICategory.WARFARE)
 		HEAT_RESISTANT_COATING(
-				ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_CHESTPLATE), (upgrade, modifications) -> modifications.setBoolean("heatcoat", true)),
+				ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_CHESTPLATE), (upgrade, modifications) -> modifications.setBoolean("heatcoat", true), "heat_resistant_coating"),
 
 		@IIItemProperties(category = IICategory.WARFARE)
 		ANTI_STATIC_MESH(
@@ -123,17 +124,17 @@ public class ItemIIArmorUpgrade extends ItemIISubItemsBase<ArmorUpgrades> implem
 		CAMOUFLAGE_MESH(
 				ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_CHESTPLATE),
 				(upgrade, modifications) -> modifications.setBoolean("camo_mesh", true),
-				"anti_static_mesh", "ir_mesh"),
+				"camo_mesh", "anti_static_mesh", "ir_mesh"),
 
 		@IIItemProperties(category = IICategory.WARFARE)
 		INFRARED_ABSORBING_MESH(
 				ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_CHESTPLATE),
 				(upgrade, modifications) -> modifications.setBoolean("ir_mesh", true),
-				"anti_static_mesh", "camo_mesh"),
+				"ir_mesh", "anti_static_mesh", "camo_mesh"),
 
 		@IIItemProperties(category = IICategory.WARFARE)
 		SCUBA_TANK(ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_CHESTPLATE),
-				(upgrade, modifications) -> modifications.setBoolean("scuba", true)
+				(upgrade, modifications) -> modifications.setBoolean("scuba", true), "scuba_tank"
 		),
 
 		@IIItemProperties(hidden = true, category = IICategory.WARFARE)
@@ -152,17 +153,19 @@ public class ItemIIArmorUpgrade extends ItemIISubItemsBase<ArmorUpgrades> implem
 					modifications.setBoolean("reinforced", true);
 					modifications.setDouble("toughness_increase", 1);
 					modifications.setDouble("armor_increase", 1);
-				}),
+				}, "boot_reinforcement"),
 		@IIItemProperties(category = IICategory.WARFARE)
 		SNOW_RACKETS(
-				ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_BOOTS), "flippers"),
+				ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_BOOTS), (upgrade, mods) -> { mods.setBoolean("rackets", true); }, "snow_rackets", "flippers", "internal_springs"),
 		@IIItemProperties(category = IICategory.WARFARE)
 		FLIPPERS(
-				ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_BOOTS), "snow_rackets"),
+				ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_BOOTS), (upgrade, mods) -> { mods.setBoolean("flippers", true); },"flippers", "snow_rackets", "internal_springs"),
 		@IIItemProperties(category = IICategory.WARFARE)
 		INTERNAL_SPRINGS(
-				ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_BOOTS));
+				ImmutableSet.of(ArmorTypes.LIGHT_ENGINEER_BOOTS), (upgrade, mods) -> { mods.setBoolean("internal_springs", true); },"internal_springs", "snow_rackets", "flippers");
 
+		public final ImmutableSet<String> incompatibilities;
+		public final String upgradeName;
 		private final ImmutableSet<ArmorTypes> toolset;
 		private final BiPredicate<ItemStack, ItemStack> check;
 		private final BiConsumer<ItemStack, NBTTagCompound> function;
@@ -173,13 +176,17 @@ public class ItemIIArmorUpgrade extends ItemIISubItemsBase<ArmorUpgrades> implem
 			this.check = createCheck(incompatible);
 			//due to getName() method, this cannot overload the other constructor
 			this.function = (upgrade, modifications) -> modifications.setBoolean(getName(), true);
+			this.incompatibilities = ImmutableSet.copyOf(incompatible);
+			this.upgradeName = getName();
 		}
 
-		ArmorUpgrades(ImmutableSet<ArmorTypes> types, BiConsumer<ItemStack, NBTTagCompound> function, final String... incompatible)
+		ArmorUpgrades(ImmutableSet<ArmorTypes> types, BiConsumer<ItemStack, NBTTagCompound> function, String upgradeName, final String... incompatible)
 		{
 			this.toolset = types;
 			this.check = createCheck(incompatible);
 			this.function = function;
+			this.incompatibilities = ImmutableSet.copyOf(incompatible);
+			this.upgradeName = upgradeName;
 		}
 
 		/**
@@ -211,6 +218,28 @@ public class ItemIIArmorUpgrade extends ItemIISubItemsBase<ArmorUpgrades> implem
 		//add valid weapon types
 		for(ArmorTypes type : sub.toolset)
 			list.add(IIUtils.getHexCol(type.color,type.symbol+" "+I18n.format(IILib.DESC_TOOLUPGRADE+"item."+type.getName())));
+
+		HashMap<String, ArmorUpgrades> upgradesMap = new HashMap<>();
+		for (ArmorUpgrades upgrade : ArmorUpgrades.values()) {
+			upgradesMap.put(upgrade.upgradeName, upgrade);
+		}
+
+		// Add incompatibilities
+		if (sub.incompatibilities.size() > 0)
+		{
+			list.add(IIUtils.getHexCol(0xfc2c28, I18n.format(IILib.DESC_INCOMPATIBLE_WITH)));
+			for (int i = 0; i < sub.incompatibilities.size(); i++)
+			{
+				String incompatibility = sub.incompatibilities.asList().get(i);
+				if (!upgradesMap.containsKey(incompatibility)) incompatibility = "ERROR";
+				incompatibility = upgradesMap.get(incompatibility).getName();
+				String[] incompatibilities = ImmersiveEngineering.proxy.splitStringOnWidth(I18n.format(IILib.ITEM_ARMOR_UPGRADE+incompatibility+".name"), 200);
+				Arrays.stream(incompatibilities).forEach((s -> {
+					String tmp = IIUtils.getHexCol(0xfc2c28, s);
+					list.add(tmp);
+				}));
+			}
+		}
 
 		//add description
 		String[] flavour = ImmersiveEngineering.proxy.splitStringOnWidth(

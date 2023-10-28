@@ -250,6 +250,7 @@ desc.immersiveintelligence.wrench=Installs upgrades on compatible machines.
 desc.immersiveintelligence.tachometer=Measures speed and torque of rotary devices.
 desc.immersiveintelligence.binoculars=Allows to see distant things.
 
+desc.immersiveintelligence.toolupgrade.incompatible=Incompatible with:
 desc.immersiveintelligence.toolupgrade.item.revolver=Revolver
 desc.immersiveintelligence.toolupgrade.item.railgun=Railgun
 desc.immersiveintelligence.toolupgrade.item.machinegun=Machinegun
