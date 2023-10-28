@@ -74,7 +74,7 @@ public class ItemIILightEngineerBoots extends ItemIILightEngineerArmorBase imple
 
 		if(equipmentSlot==this.armorType)
 		{
-			if(ItemNBTHelper.hasKey(stack, "flippin"))
+			if(ItemNBTHelper.hasKey(stack, "flippers"))
 			{
 				multimap.put(EntityLivingBase.SWIM_SPEED.getName(), new AttributeModifier(ARMOR_MODIFIERS[equipmentSlot.getIndex()], "Flippers", 4, 2));
 			}

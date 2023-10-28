@@ -20,6 +20,7 @@ import pl.pabilo8.immersiveintelligence.common.commands.CommandII;
 import pl.pabilo8.immersiveintelligence.common.compat.IICompatModule;
 import pl.pabilo8.immersiveintelligence.common.event.IEOverrideEventHandler;
 import pl.pabilo8.immersiveintelligence.common.event.IIItemCreatedEventHandler;
+import pl.pabilo8.immersiveintelligence.common.event.LightEngineerEventHandler;
 import pl.pabilo8.immersiveintelligence.common.util.IISkinHandler;
 import pl.pabilo8.immersiveintelligence.common.util.Reflector;
 
@@ -90,8 +91,8 @@ public class ImmersiveIntelligence
 		//MinecraftForge.EVENT_BUS.unregister(new blusunrize.immersiveengineering.common.EventHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(INSTANCE, proxy);
 
-		IIItemCreatedEventHandler iiItemCreatedEventHandler = new IIItemCreatedEventHandler();
-		iiItemCreatedEventHandler.registerEventHandler();
+		new IIItemCreatedEventHandler().registerEventHandler();
+		new LightEngineerEventHandler().registerEventHandler();
 
 		proxy.init();
 
