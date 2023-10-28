@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 public class IIFontRenderer extends FontRenderer
 {
 	static HashMap<Character, CharReplacement> unicodeReplacements = new HashMap<>();
-	private final Pattern hexColPattern = Pattern.compile("<hexcol=(......):(.*)>");
+	private final Pattern hexColPattern = Pattern.compile("<hexcol=(......):(.*)>", Pattern.DOTALL | Pattern.MULTILINE);
 	private final int hexColWidth = getStringWidth("<hexcol=012345:>");
 	private final int hexColLength = "<hexcol=012345:>".length();
 
