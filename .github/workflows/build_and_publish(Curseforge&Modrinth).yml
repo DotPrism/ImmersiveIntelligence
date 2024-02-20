@@ -43,12 +43,12 @@ jobs:
         with:
         
           curseforge-id: 344344                                             
-          curseforge-token: "${{env.CURSEFORGE_TOKEN}}"
+          curseforge-token: "${{env.CURSEFORGE_TOKEN_TEST}}"
           
           modrinth-featured: true
           modrinth-unfeature-mode: subset
           modrinth-id: q19xbT91                                             
-          modrinth-token: "${{env.MODRINTH_TOKEN}}"
+          modrinth-token: "${{env.MODRINTH_TOKEN_TEST}}"
                                           
 
           loaders: forge
